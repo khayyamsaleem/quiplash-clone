@@ -16,9 +16,9 @@
     - **Actor:** Player
     - **Scenario:** The player playing in a private room can use a unique room code to join an existing game. They create a username for the game. The system validates and confirms the username to make sure it isn’t taken by someone else in the room. The player joins the room and begins playing.
 
-4. **Title:** Add a quip
+4. **Title:** Add a prompt
     - **Actor:** Player
-    - **Scenario:** The player can add their own quip to be publically played. They will see a message that their quip will be reviewed. The system will validate the quip to make sure that it’s appropriate for others (no curse words or spam messages). The system will then add the quip to the database.
+    - **Scenario:** The player can add their own prompt to be publically played. They will see a message that their prompt will be reviewed. The system will validate the prompt to make sure that it’s appropriate for others (no curse words or spam messages). The system will then add the prompt to the database.
 
 ### Domain Modeling
 
