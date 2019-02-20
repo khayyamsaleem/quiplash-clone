@@ -13,7 +13,11 @@ You can find our project requirements <a href="REQUIREMENTS.md">here</a>.
 ## Authors
 
 Disha Gupta - [dishagupta15](https://github.com/dishagupta15)
+
 Richard Jin - [richardjin10](https://github.com/richardjin10)
+
 Larry Liu - 
+
 Rebecca Shi - [rebecca112233](https://github.com/rebecca112233)
+
 Jody Simpson - [jodz959](https://github.com/jodz959)
