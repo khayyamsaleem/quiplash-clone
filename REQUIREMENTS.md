@@ -53,3 +53,8 @@
 6. Do you typically have co-investors?
 7. Will you want to be personally involved with the company?
     - Will you want a board seat?
+8. When was the last time you made an investment?
+9. What is your process like?
+    - How do you make a decision?
+10. How do you interact with your founders after investing?
+11. What is the first thing you’d want us to do if we worked together?
