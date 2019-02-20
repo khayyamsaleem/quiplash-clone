@@ -1,5 +1,7 @@
 # Quip Thinking Project Requirements
+
 ## Functional Requirements
+
 ### End-User Observation
 
 ### Use Cases
@@ -30,6 +32,7 @@
 
 ### Domain Modeling
 ![Domain Model](domain-model.png)
+
 ## Non-Functional Requirementsi
 
 ## Requirements Elicitation
@@ -41,4 +44,12 @@
 2. Wei-Kai Pan
 
 **Questions:**
-1.
+1. Do you have a specific industry you are looking to invest in?
+    - Find out about the domain expertise of the stakeholder.
+2. Why are the looking to invest in this industry?
+3. Do you have similar investments?
+4. What are your most successful investments? 
+5. On average, how many investments do you make per year and what is the typical size of those investments?
+6. Do you typically have co-investors?
+7. Will you want to be personally involved with the company?
+    - Will you want a board seat?
