@@ -8,7 +8,7 @@
 ![Use Case Diagram](use-case-diagram.png)
 1. **Title:** Create new room (public or private)
     - **Actor:** Player
-    - **Scenario:** The player clicks “Create new room” and chooses whether it is public or private. If the room is public, it will show up on the list of public rooms on the front page. If it’s private, the system will generate a unique room code. The player joins the room, and the system will show a timer for two minutes to allow other people to join. Once enough people have joined (at least two), the system will show a button that allows the players to start the game.
+    - **Scenario:** The player clicks “Create new room” and chooses whether it is public or private. If the room is public, it will show up on the list of public rooms on the front page. If it’s private, the system will generate a unique room code. Players can join the room, and once enough people have joined (at least three), the system will show a button that allows the person who created the game to start the game.
 
 2. **Title:** Join public room
     - **Actor:** Player
