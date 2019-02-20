@@ -16,7 +16,15 @@
     - **Actor:** Player
     - **Scenario:** The player playing in a private room can use a unique room code to join an existing game. They create a username for the game. The system validates and confirms the username to make sure it isn’t taken by someone else in the room. The player joins the room and begins playing.
 
-4. **Title:** Add a prompt
+4. **Title:** Respond to prompt
+    - **Actor:** Player
+    - **Scenario:** The system gives out three prompts to each player, pairing them with different players each time (when applicable). The player responds to the prompts and submits their answers.
+
+5. **Title:** Vote on best quips
+    - **Actor:** Player
+    - **Scenario:** The system presents the prompt and the players’ quips. The people in the game choose the quip they like the most, and the system doles out the points. After each round of prompts (three rounds total), the system will show the number of points of each player.
+
+6. **Title:** Add a prompt
     - **Actor:** Player
     - **Scenario:** The player can add their own prompt to be publically played. They will see a message that their prompt will be reviewed. The system will validate the prompt to make sure that it’s appropriate for others (no curse words or spam messages). The system will then add the prompt to the database.
 
