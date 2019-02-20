@@ -30,4 +30,15 @@
 
 ### Domain Modeling
 
-## Non-Functional Requirements
+## Non-Functional Requirementsi
+
+## Requirements Elicitation
+
+### Interviews
+
+**Stakeholders:**
+1. Amos Bloomberg
+2. Wei-Kai Pan
+
+**Questions:**
+1. 
