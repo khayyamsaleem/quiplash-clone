@@ -20,10 +20,14 @@ Disha is currently a senior in CAS majoring in Computer Science. After graduatio
 
 Richard is currently a senior in CAS majoring in Computer Science. He is currently passionate about front-end development.
 
-**Larry Liu** - 
+**Larry Liu** - (NYU '18')
+
+Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to intern at Lyft as a software engineer intern. He is currently passionate about full stack development. 
 
 **Rebecca Shi** - (NYU '19) [rebecca112233](https://github.com/rebecca112233)
 
 Rebecca is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer. She is currently passionate about UI/UX.
 
 **Jody Simpson** - [jodz959](https://github.com/jodz959)
+
+Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer. 
