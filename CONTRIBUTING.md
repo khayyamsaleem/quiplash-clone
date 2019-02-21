@@ -6,7 +6,10 @@
 
 ## Team Norms
 
-1. 
+1. Treat every team member with dignity and respect.
+2. Be genuine with each other about thoughts, ideas, and feelings.
+3. Avoid being defensive. 
+4. Support each other.
 
 ## Contribution Rules
 
