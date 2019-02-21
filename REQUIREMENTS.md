@@ -44,6 +44,9 @@
 2. Wei-Kai Pan
 
 **Questions:**
+
+*Investor Focused -*
+
 1. Do you have a specific industry you are looking to invest in?
     - Find out about the domain expertise of the stakeholder.
 2. Why are the looking to invest in this industry?
@@ -58,3 +61,12 @@
     - How do you make a decision?
 10. How do you interact with your founders after investing?
 11. What is the first thing you’d want us to do if we worked together?
+
+*User Focused -*
+
+1. Do you usually play party games with your friends?
+2. What games do you usually play with friends?
+3. What do you look for in a game before deciding if you want to play it?
+4. How often do you play games you've already played before?
+    - Are you always looking for new games to try?
+5. 
