@@ -53,12 +53,12 @@
 3. Do you have similar investments?
 4. What are your most successful investments? 
 5. On average, how many investments do you make per year and what is the typical size of those investments?
-6. Do you typically have co-investors?
-7. Will you want to be personally involved with the company?
-    - Will you want a board seat?
-8. When was the last time you made an investment?
-9. What is your process like?
+6. When was the last time you made an investment?
+7. What is your process like?
     - How do you make a decision?
+8. Do you typically have co-investors?
+9. Will you want to be personally involved with the company?
+    - Will you want a board seat?
 10. How do you interact with your founders after investing?
 11. What is the first thing you’d want us to do if we worked together?
 
@@ -69,4 +69,10 @@
 3. What do you look for in a game before deciding if you want to play it?
 4. How often do you play games you've already played before?
     - Are you always looking for new games to try?
-5. 
+
+*Team Focused -*
+
+1. Do you have experience building games?
+2. How do you think we can distinguish ourselves from the original game, Quiplash?
+3. Do you have any concerns about this project?
+4. What would you like to see this project achieve?
