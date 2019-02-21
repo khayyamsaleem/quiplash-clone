@@ -23,9 +23,15 @@
 
 A task is considered "done" when it has been completed by the assignee and a team member has had a chance to review it. 
 
-- when it is completed by the asignee
+- when it is completed by the assignee
 - 
 
 ## Work Flow Type
 
 Trunk Based Workflow
+
+## Standup Schedule
+- Tuesday: 5:30PM (in person)
+- Wednesday: 5:00PM (remote)
+- Thursday: 6:00PM (in person)
+- Sunday: 8:00PM (remote)
