@@ -8,7 +8,19 @@ We give users the ability to play with anyone, from their friends to strangers, 
 
 ## Project Requirements
 
-You can find our project requirements <a href="REQUIREMENTS.md">here</a>.
+You can read our project requirements <a href="REQUIREMENTS.md">here</a>.
+
+## Contributing Info
+
+Do you want to contribute to this project? Please read <a href="CONTRIBUTING.md">these</a> guidelines first.
+
+## Installation
+
+Clone the project:
+
+``` 
+https://github.com/nyu-software-engineering/quip-thinking.git  
+```
 
 ## Authors
 
@@ -20,14 +32,14 @@ Disha is currently a senior in CAS majoring in Computer Science. After graduatio
 
 Richard is currently a senior in CAS majoring in Computer Science. He is currently passionate about front-end development.
 
-**Larry Liu** - (NYU '18')
+**Larry Liu** - (NYU '20)
 
-Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to intern at Lyft as a software engineer intern. He is currently passionate about full stack development. 
+Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft to begin his role as a software engineering intern.  He is currently passionate about full stack development. 
 
 **Rebecca Shi** - (NYU '19) [rebecca112233](https://github.com/rebecca112233)
 
 Rebecca is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer. She is currently passionate about UI/UX.
 
-**Jody Simpson** - [jodz959](https://github.com/jodz959)
+**Jody Simpson** - (NYU '19) [jodz959](https://github.com/jodz959)
 
 Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer. 
