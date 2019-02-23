@@ -32,7 +32,7 @@ Disha is currently a senior in CAS majoring in Computer Science. After graduatio
 
 Richard is currently a senior in CAS majoring in Computer Science. He is currently passionate about front-end development.
 
-**Larry Liu** - (NYU '20)
+**Larry Liu** - (NYU '20) [lawrencelarryliu](https://github.com/lawrencelarryliu)
 
 Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft to begin his role as a software engineering intern.  He is currently passionate about full stack development. 
 
