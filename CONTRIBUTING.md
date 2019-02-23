@@ -1,10 +1,6 @@
 # Contributing
 
-## Project Values
-
-1. 
-
-## Team Norms
+## Project Values and Team Norms
 
 ### Behavior
 
