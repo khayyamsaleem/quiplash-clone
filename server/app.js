@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const express = require("express");
 const app = express();
-const config = require('./config/config');
+const config = require('./config/default');
 const dbURL = config.dbURL;
 
 const promptRoutes = require('./routes/prompts');
@@ -35,3 +35,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => console.log(`server running on port ${port}!`));
+
+//for testing
+module.exports = app;
