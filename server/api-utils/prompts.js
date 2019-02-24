@@ -25,7 +25,7 @@ function createPrompt(req, res) {
 function getPrompt(req, res) {
 	Prompt.findOne({}, (err, promptt) => {
 		if (promptt === undefined || promptt === null) { /* not found */
-			return res.status(404).json({ success: false });
+			return res.status(404).json({ success: false, question: '' });
 		} else { /* found */
 			return res.status(200).json({ success:true, question: promptt });
 		}
