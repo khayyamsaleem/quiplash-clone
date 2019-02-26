@@ -1,0 +1,19 @@
+{
+  "name": "quip-thinking",
+  "version": "1.0.0",
+  "description": "**Quip Thinking** is a game based off of the popular game called Quiplash, originally made by the developers at Jackbox Games.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-software-engineering/quip-thinking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-software-engineering/quip-thinking/issues"
+  },
+  "homepage": "https://github.com/nyu-software-engineering/quip-thinking#readme"
+}
