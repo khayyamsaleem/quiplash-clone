@@ -1,28 +1,26 @@
 const express = require("express");
 const app = express();
 
-const path = require("path");
-const publicPath = path.resolve(__dirname, "public");
+// const path = require("path");
+// const publicPath = path.resolve(__dirname, "public");
 
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
-app.use(express.static(publicPath));
+const port = 3000;
 
-app.set("view engine", "hbs");
+// app.use(express.static(publicPath));
 
-app.use(function(req, res) {
-	console.log(req.method, req.path);
-});
+// app.set("view engine", "hbs");
+
+// app.use(function(req, res) {
+// 	console.log(req.method, req.path);
+// });
 
 app.get("/", function(req, res) {
-	res.render("home", {});
+	res.send("hi this is a test");
 });
 
-app.post("/add", function(req, res) {
-	art.push(req.body);
+app.listen(port, () => console.log(`node server running on port ${port}!`));
 
-	res.redirect("/");
-});
-
-app.listen(3000, "127.0.0.1");
-console.log("node server running on port 3000");
+// app.listen(3000);
+// console.log("node server running on port 3000");
