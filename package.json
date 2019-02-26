@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nyu-software-engineering/quip-thinking/issues"
   },
-  "homepage": "https://github.com/nyu-software-engineering/quip-thinking#readme"
+  "homepage": "https://github.com/nyu-software-engineering/quip-thinking#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
