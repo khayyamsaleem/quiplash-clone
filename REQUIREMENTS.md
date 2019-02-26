@@ -5,7 +5,7 @@
 ### End-User Observation
 
 ### Use Cases
-![Use Case Diagram](use-case-diagram.png)
+![Use Case Diagram](public/images/use-case-diagram.png)
 1. **Title:** Create new room (public or private)
     - **Actor:** Player
     - **Scenario:** The player clicks “Create new room” and chooses whether it is public or private. If the room is public, it will show up on the list of public rooms on the front page. If it’s private, the system will generate a unique room code. Players can join the room, and once enough people have joined (at least three), the system will show a button that allows the person who created the game to start the game.
@@ -31,7 +31,7 @@
     - **Scenario:** The player can add their own prompt to be publically played. They will see a message that their prompt will be reviewed. The system will validate the prompt to make sure that it’s appropriate for others (no curse words or spam messages). The system will then add the prompt to the database.
 
 ### Domain Modeling
-![Domain Model](domain-model.png)
+![Domain Model](public/images/domain-model.png)
 
 ## Non-Functional Requirementsi
 
