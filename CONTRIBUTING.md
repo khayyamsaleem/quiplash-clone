@@ -44,6 +44,6 @@ Trunk Based Workflow
 
 ## Standup Schedule
 - Tuesday: 5:30PM (in person) at LaGuardia Co-op
-- Wednesday: 5:00PM (remote) on Slack
+- Wednesday: 5:45PM (remote) on Slack
 - Thursday: 6:00PM (in person) at LaGuardia Co-op
 - Sunday: 8:00PM (remote) on Slack
