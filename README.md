@@ -16,15 +16,13 @@ Do you want to contribute to this project? Please read <a href="CONTRIBUTING.md"
 
 ## Installation
 
-Clone the project:
+Clone our project: `git clone https://github.com/nyu-software-engineering/quip-thinking.git`!
 
-`git clone https://github.com/nyu-software-engineering/quip-thinking.git`
+Start the server in `server` directory with `npm start`.
 
-Start server in `server` directory with `npm start`
+Start the client in `client` directory with `npm start` in a different terminal or command-line instance.
 
-Start client in `client` directory with `npm start`, in a different terminal or command-line instance.
-
-Run tests for client with `npm test` in the `client` directory
+Run tests for client with `npm test` in the `client` directory.
 
 ## Authors
 
