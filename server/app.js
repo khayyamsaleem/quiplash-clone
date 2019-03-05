@@ -1,11 +1,13 @@
-const app = require('express')()
-const PORT = 1337
+const express = require("express");
+const app = express();
+
+const port = 3000;
 
 app.get('/', (req, res) => {
     res.json({
         success: true,
-        message: "Server running"
+        message: "server running"
     })
 })
 
-app.listen(PORT, () => console.log(`server launched at localhost:${PORT}`))
+app.listen(port, () => console.log(`server running on port ${port}!`));
