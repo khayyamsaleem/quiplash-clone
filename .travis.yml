@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+    - "11.10.0"
+services:
+    - MongoDB
+before_install:
+    - cd src
+    - npm i -g npm@6.7.0
+install:
+    - npm install
+cache:
+    - npm
+script:
+    - npm run test
+notifications:
+    slack: nyu-agile-software:4Ll9V7RPK8fkqf2dGDvWiEGt
