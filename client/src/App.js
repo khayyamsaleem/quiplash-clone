@@ -14,20 +14,23 @@ const App = () => (
       <Nav.Link href="#">About</Nav.Link>
     </Navbar>
 
-    <div className="title">
+    <div className="contentContainer title" id="first">
       <h1>Quip Thinking</h1>
       <h4>the online game of witty lines</h4> 
     </div>
 
-    <Container>
-      <Row>
-        <Col><Button variant="primary">Create a Room</Button></Col>
-        <Col><Button variant="success">Join a Room</Button></Col>
-        <Col><Button variant="danger">Add a Prompt</Button></Col>
-      </Row>
-    </Container>
-    <hr />
-    <Scoreboard />
+    <div className="contentContainer" id="second">
+      <h2>Play now!</h2>
+      <Container>
+        <Row>
+          <Col><Button variant="primary">Create a Room</Button></Col>
+          <Col><Button variant="success">Join a Room</Button></Col>
+          <Col><Button variant="danger">Add a Prompt</Button></Col>
+        </Row>
+      </Container>
+      <hr />
+      <Scoreboard />
+    </div>
   </>
 )
 
