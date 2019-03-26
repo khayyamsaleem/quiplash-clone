@@ -1,4 +1,5 @@
 # Quip Thinking
+[![Build Status](https://travis-ci.com/nyu-software-engineering/quip-thinking.svg?branch=master)](https://travis-ci.com/nyu-software-engineering/quip-thinking)
 
 **Quip Thinking** is a game based off of the popular game called Quiplash, originally made by the developers at Jackbox Games. 
 
