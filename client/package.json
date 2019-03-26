@@ -10,7 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha",
+    "test": "mocha --require @babel/register src/tests",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
