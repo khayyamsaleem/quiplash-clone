@@ -29,9 +29,12 @@ const App = () => (
             <Col><Button variant="danger">Add a Prompt</Button></Col>
           </Row>
         </Container>
+      </div>
+
+      {/* <div className="contentContainer" id="third">
         <hr />
         <Scoreboard />
-      </div>
+      </div> */}
     </div>
   </>
 )
