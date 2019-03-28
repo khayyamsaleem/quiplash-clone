@@ -16,7 +16,7 @@ const App = () => (
 
     <div className="contentContainer title" id="first">
       <h1>Quip Thinking</h1>
-      <h4>the online game of witty lines</h4> 
+      <h4>the online game of witty lines</h4>
     </div>
 
     <div className="contentContainer" id="second">
