@@ -1,32 +1,16 @@
 language: node_js
 node_js:
-    - "11.10.0"
-
-jobs:
-  include:
-    - name: Run client tests
-      install:
-        - cd client
-        - npm install
-      script: 
-        - npm run test
-    - name: Run server tests
-      install:
-        - cd server
-        - npm install
-      script:
-        - npm run test
-    - name: Build client tests
-      install:
-        - cd client
-        - npm install
-      script:
-        - npm run test
-    - name: Build server tests
-      install:
-        - cd server
-        - npm install
-      script:
-        - npm run test
+ - "11.10.0"
+services:
+  - MongoDB
+before_install:
+  - cd application_code
+  - npm i -g npm@6.7.0
+install:
+  - npm install
+cache:
+  - npm
+script:
+  - npm run test
 notifications:
-    slack: nyu-agile-software:4Ll9V7RPK8fkqf2dGDvWiEGt
+  slack: nyu-agile-software:04E7Sc8kwphZ6MOgPVlchAMe

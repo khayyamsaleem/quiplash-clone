@@ -27,9 +27,11 @@ arr = str(content).split("Question: ")
 for phrase in arr:
     # separate questions from answers based on break tags
     index = phrase.find("<br/>")
+    # get prompt without "Question: " included in string
+    prompt = phrase[:index]
     # verify that answer is just text and not an HTML tag
-    if '<' not in phrase[:index] and '>' not in phrase[:index]:
-        prompts.append(phrase[:index])
+    if '<' not in prompt and '>' not in prompt:
+        prompts.append(prompt)
 
 # check for accuracy
 # for p in prompts:
