@@ -37,7 +37,7 @@ Richard is currently a senior in CAS majoring in Computer Science. He is current
 
 **Larry Liu** - (NYU '20) [lawrencelarryliu](https://github.com/lawrencelarryliu)
 
-Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft and then Facebook to begin his role as a software engineering intern.  He is currently passionate about full stack development.
+Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft and then Facebook to begin his role as a Software Engineering Intern.  He is currently passionate about full stack development.
 
 **Rebecca Shi** - (NYU '19) [rebecca112233](https://github.com/rebecca112233)
 
