@@ -8,21 +8,38 @@ Created on Thu Mar 28 18:37:52 2019
 
 # -*- coding: utf-8 -*-
 
-from bs4 import BeautifulSoup
+# use requests module to access webpage
 import requests
+# use BeautifulSoup to scrape HTML from site
+from bs4 import BeautifulSoup
 
+# sample prompts embedded in webpage
 url = 'https://www.trueachievements.com/a208499/quiplash-xl-back-talk-achievement'
-response = requests.get(url, timeout = 5)
+# set timeout in case the page takes too long
+response = requests.get(url, timeout=5)
 
 content = BeautifulSoup(response.content, "html.parser")
+# store all isolated quips into array called prompts
 prompts = []
 
+# identify prompts based on string identifier
 arr = str(content).split("Question: ")
 for phrase in arr:
+    # separate questions from answers based on break tags
     index = phrase.find("<br/>")
-    prompts.append(phrase[:index])
+    # verify that answer is just text and not an HTML tag
+    if '<' not in phrase[:index] and '>' not in phrase[:index]:
+        prompts.append(phrase[:index])
 
-for p in prompts:
-    print(p)
+# check for accuracy
+# for p in prompts:
+#    print(p)
 length = len(prompts)
-print(length)
+# print(length)
+
+# create file to write to
+f = open("prompts.csv", 'w')
+for i in range(length - 1):
+    f.write(prompts[i] + ',')
+# don't include comma after last prompt
+f.write(prompts[length - 1])
