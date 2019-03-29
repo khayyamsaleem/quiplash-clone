@@ -4,7 +4,7 @@ node_js:
 services:
   - MongoDB
 before_install:
-  - cd application_code
+  - cd server
   - npm i -g npm@6.7.0
 install:
   - npm install
