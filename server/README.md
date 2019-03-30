@@ -9,13 +9,13 @@ DB_URL_DEV=your-dev-db
 PORT_DEV=your-dev-port
 
 DB_URL_TEST=your-test-db
-PORT_DEV=your-dev-port
+PORT_TEST=your-test-port
 
 ```
 
 To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/blob/master/prompts/prompts.csv) on your local machine, `cd server/` and run the command `npm run updateDB`.
 
-To **test**: `npm run test`
+To **test**: `npm run test`  
 To **start**: `npm run start`
 
 ### API's
