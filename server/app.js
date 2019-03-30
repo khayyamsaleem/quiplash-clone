@@ -11,7 +11,7 @@ const dbURL = process.env['DB_URL_' + env];
 
 const promptRoutes = require('./routes/prompts');
 
-const port = 3000;
+const port = process.env['PORT_' + env];
 
 //connect to mongo db
 mongoose.connect(dbURL, {useNewUrlParser: true});
