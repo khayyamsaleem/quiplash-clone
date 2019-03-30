@@ -1,37 +1,23 @@
 import React from 'react';
 import './App.css';
 import logo from './logo.png';
-import GenButton from './components/Button';
-import Scoreboard from './components/Scoreboard';
+// import GenButton from './components/Button';
+// import Scoreboard from './components/Scoreboard';
 import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from "./components/home"
+import Header from "./components/header"
+import join_room from "./components/join_room";
 
 const App = () => (
-  <>
-    <Navbar fixed="top" bg="info">
-      <Navbar.Brand href="#home">
-        <img alt="quip logo" src={logo} width="85" height="44.25" className="d-inline-block align-top"/>
-      </Navbar.Brand>
-      <Nav.Link href="#">About</Nav.Link>
-    </Navbar>
+<Router>
+  <div>
+  <Route exact path="/" component={Home}/>
+  <Route path = "/join_room" component={join_room}/>
+  </div>
 
-    <div className="contentContainer title" id="first">
-      <h1>Quip Thinking</h1>
-      <h4>the online game of witty lines</h4>
-    </div>
+</Router>
 
-    <div className="contentContainer" id="second">
-      <h2>Play now!</h2>
-      <Container>
-        <Row>
-          <Col><Button variant="primary">Create a Room</Button></Col>
-          <Col><Button variant="success">Join a Room</Button></Col>
-          <Col><Button variant="danger">Add a Prompt</Button></Col>
-        </Row>
-      </Container>
-      <hr />
-      <Scoreboard />
-    </div>
-  </>
 )
 
 export default App;
