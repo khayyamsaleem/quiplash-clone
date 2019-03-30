@@ -8,7 +8,8 @@
     "start:dev": "nodemon",
     "test": "NODE_ENV=test mocha tests/prompt-tests.js",
     "pretest": "echo 'about to run tests'",
-    "posttest": "echo 'test completed'"
+    "posttest": "echo 'test completed'",
+    "updateDB": "export NODE_ENV=dev && node api-utils/populate_prompts.js"
   },
   "author": "Rebecca Shi",
   "license": "ISC",
@@ -17,9 +18,11 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.18"
+    "mongoose": "^5.4.18",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "mocha": "^6.0.2",
