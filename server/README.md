@@ -5,11 +5,11 @@ To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/b
 
 ### API's
 
-#### POST '/prompt/create-prompt'
+##### POST '/prompt/create-prompt'
 
-body: {
-	question: <question>
-}
+body: {  
+	question: <question>  
+}  
 
 Takes form input with body above, creates a new prompt and adds it to the database.
 
