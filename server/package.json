@@ -4,9 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "NODE_ENV=dev node app.js",
     "start:dev": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha tests/prompt-tests.js",
+    "pretest": "echo 'about to run tests'",
+    "posttest": "echo 'test completed'"
   },
   "author": "Rebecca Shi",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.18"
   },
