@@ -1,14 +1,15 @@
 ## Quip API's
 
 ### Getting started
-To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/blob/master/prompts/prompts.csv) on your local machine, cd server/api-utils and run the command `node populate-prompts`.
+To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/blob/master/prompts/prompts.csv) on your local machine, `cd server/api-utils` and run the command `node populate-prompts.js`.
 
 ### API's
+The following api's can be used to access the database.
 
 ##### POST '/prompt/create-prompt'
 
-body: {  
-	question: <question>  
+body {  
+question: \< question \>  
 }  
 
 Takes form input with body above, creates a new prompt and adds it to the database.
