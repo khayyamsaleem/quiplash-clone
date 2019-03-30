@@ -45,4 +45,4 @@ Rebecca is currently a senior in CAS majoring in Computer Science. After graduat
 
 **Jody Simpson** - (NYU '19) [jodz959](https://github.com/jodz959)
 
-Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer.
+Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she will be working as a software engineer.
