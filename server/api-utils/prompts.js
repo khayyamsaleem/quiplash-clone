@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const Prompt = require('./../models/prompts');
 
 function createPrompt(req, res) {
-	const ques = req.body.question;
+	let ques = '';
+	if (req.body.question === undefined) {
+		return res.status(400).json({ success: false, err: 'Missing question property'});
+	} else {
+		ques = req.body.question;
+	}
 
 	Prompt.findOne({ question: ques}, (err, prompt) => {
 		/* no duplicate  */
@@ -11,13 +16,13 @@ function createPrompt(req, res) {
 				question: ques
             }).save((err, promptt) => {
 				if(err) { /*failed to save, server error */
-					return res.status(500).json({ message: err });
+					return res.status(500).json({ success: false,  err: err });
 				} else { /* saved successfully */
 					return res.status(200).json({ success: true, question: promptt });
 				}
 			});
         } else { /* already exists */
-			return res.status(200).json({ success: true, question: promptt });
+			return res.status(200).json({ success: true, question: ques });
         }
     });
 }

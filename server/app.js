@@ -2,12 +2,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const express = require("express");
 const app = express();
-const config = require('./config/default');
-const dbURL = config.dbURL;
+
+//check for prod env later
+require('dotenv').config();
+
+const env = (process.env.NODE_ENV).toUpperCase();
+const dbURL = process.env['DB_URL_' + env];
 
 const promptRoutes = require('./routes/prompts');
 
-const port = 3000;
+const port = process.env['PORT_' + env];
 
 //connect to mongo db
 mongoose.connect(dbURL, {useNewUrlParser: true});
