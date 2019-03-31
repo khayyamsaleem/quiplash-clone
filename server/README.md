@@ -15,7 +15,7 @@ PORT_TEST=your-test-port
 
 To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/blob/master/prompts/prompts.csv) on your local machine, `cd server/` and run the command `npm run updateDB`.
 
-To **test**: `npm run test`
+To **test**: `npm run test`  
 To **start**: `npm run start`
 
 ### API's
