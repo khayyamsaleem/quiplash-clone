@@ -9,7 +9,7 @@ DB_URL_DEV=your-dev-db
 PORT_DEV=your-dev-port
 
 DB_URL_TEST=your-test-db
-PORT_DEV=your-dev-port
+PORT_TEST=your-test-port
 
 ```
 
