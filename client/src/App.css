@@ -10,13 +10,15 @@
   justify-content: center; 
   vertical-align: middle;
 } */
+body {
+  background-color:lightsteelblue; 
+}
 
 .App{
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
   height: 100vh;
-  /* background-color:lightsteelblue; */
   text-align: center;
   align-content: space-evenly;
 }
