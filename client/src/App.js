@@ -7,7 +7,7 @@ import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 
 const App = () => (
   <>
-    <div class="App">
+    <div className="App">
       <Navbar fixed="top" bg="info" expand="lg">
         <Navbar.Brand href="#home">
           <img alt="quip logo" src={logo} width="85" height="44.25" className="d-inline-block align-top"/>

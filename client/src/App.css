@@ -10,9 +10,8 @@
   justify-content: center; 
   vertical-align: middle;
 } */
-body {
-  background-color:lightsteelblue; 
-}
+
+
 
 .App{
   display: grid;
@@ -21,6 +20,9 @@ body {
   height: 100vh;
   text-align: center;
   align-content: space-evenly;
+  background-image: url("bubbles.png");
+  background-color:lightsteelblue;
+
 }
 
 #title{
