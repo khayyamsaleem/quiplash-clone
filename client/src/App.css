@@ -20,9 +20,8 @@
   height: 100vh;
   text-align: center;
   align-content: space-evenly;
-  background-image: url("bubbles.png");
-  background-color:lightsteelblue;
-
+  /* background-image: url("rainbowbubblestext.png"); */
+  background-color:lightblue;
 }
 
 #title{
