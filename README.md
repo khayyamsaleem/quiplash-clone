@@ -1,9 +1,9 @@
 # Quip Thinking
 [![Build Status](https://travis-ci.com/nyu-software-engineering/quip-thinking.svg?branch=master)](https://travis-ci.com/nyu-software-engineering/quip-thinking)
 
-**Quip Thinking** is a game based off of the popular game called Quiplash, originally made by the developers at Jackbox Games. 
+**Quip Thinking** is a game based off of the popular game called Quiplash, originally made by the developers at Jackbox Games.
 
-The original game involves two people answering witty prompts and their friends voting on which answer they liked the most. Quip Thinking puts a new spin on the game to give users a fresh take. 
+The original game involves two people answering witty prompts and their friends voting on which answer they liked the most. Quip Thinking puts a new spin on the game to give users a fresh take.
 
 We give users the ability to play with anyone, from their friends to strangers, from the comfort of their computers or phones. They can join a public room, or make their own private room with a room code to play with friends. Users can also add their own prompt (first vetted by our software, of course!) to our database of prompts.
 
@@ -37,7 +37,7 @@ Richard is currently a senior in CAS majoring in Computer Science. He is current
 
 **Larry Liu** - (NYU '20) [lawrencelarryliu](https://github.com/lawrencelarryliu)
 
-Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft to begin his role as a software engineering intern.  He is currently passionate about full stack development. 
+Larry is currently a junior in CAS majoring in Computer Science. After this semester, he is heading to Lyft and then Facebook to begin his role as a Software Engineering Intern.  He is currently passionate about full stack development.
 
 **Rebecca Shi** - (NYU '19) [rebecca112233](https://github.com/rebecca112233)
 
@@ -45,4 +45,4 @@ Rebecca is currently a senior in CAS majoring in Computer Science. After graduat
 
 **Jody Simpson** - (NYU '19) [jodz959](https://github.com/jodz959)
 
-Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she is heading to JP Morgan and Chase to begin her role as a Software Engineer. 
+Jody is currently a senior in CAS majoring in Computer Science. After graduation this May, she will be working as a software engineer.

@@ -8,7 +8,7 @@ export default class GenButton extends React.Component {
 
     handleClick = () => {
         this.setState({
-            buttonText: (this.state.buttonText === 'Click me') ? 'Click me not': 'Click me' 
+            buttonText: (this.state.buttonText === 'Click me') ? 'Click me not': 'Click me'
         });
     }
 

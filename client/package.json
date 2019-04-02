@@ -8,6 +8,7 @@
     "react-scripts": "^2.1.8"
   },
   "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "mocha --require @babel/register src/tests",

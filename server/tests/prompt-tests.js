@@ -29,4 +29,40 @@ describe('Prompts', () => {
 
 	});	
 
+	describe('/POST prompt', () => {
+		it('it should not POST a prompt without the question property', (done) => {
+			let promt = {
+				q: "Dr. Mac \"BLANK\""
+			}
+
+			chai.request(app)
+				.post('/prompt/create-prompt')
+				.send(promt)
+				.end((err, res) => {
+					res.should.have.status(400);
+					res.body.should.be.a('object');
+					res.body.should.have.property('err');
+					res.body.should.have.property('success').eql(false);
+				done();
+				});
+		});
+
+		it('it should POST a prompt ', (done) => {
+			let promt = {
+				question: "Dr. Mac \"BLANK\""
+			}
+			
+			chai.request(app)
+				.post('/prompt/create-prompt')
+				.send(promt)
+				.end((err, res) => {
+					res.should.have.status(200);
+					res.body.should.be.a('object');
+					res.body.should.have.property('success').eql(true);
+					res.body.should.have.property('question');
+				 done();
+				});
+		});
+	});
+
 });
