@@ -14,7 +14,7 @@ const Header = () => (
 
 
       <Navbar fixed="top" bg="info" expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img alt="quip logo" src={logo} width="85" height="44.25" className="d-inline-block align-top"/>
         </Navbar.Brand>
         {/* <Nav.Link href="#" style={{color:'white'}}>About</Nav.Link> */}
