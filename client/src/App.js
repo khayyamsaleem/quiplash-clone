@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import logo from './logo.png';
+import Home from './pages/home/home';
+import About from './pages/about/about';
 // import GenButton from './components/Button';
 // import Scoreboard from './components/Scoreboard';
 import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
@@ -22,11 +24,9 @@ const App = () => (
         </Container>
       </Navbar>
 
-      <div className="contentContainer heading" id="first">
-        <h1 id="title">Quip Thinking</h1>
-        <h4 id="byline">the online game of witty lines</h4> 
-      </div>
-      
+      <Home />
+      <About />
+      <div className="arrow"></div>
       {/* <div className="contentContainer" id="second">
         <h2>Play now!</h2>
         <Container>

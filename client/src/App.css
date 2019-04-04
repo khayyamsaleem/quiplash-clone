@@ -1,48 +1,23 @@
-/* .App{
-  display: table;
-  margin: auto;
-}
-
-.contentContainer {
-  text-align: center;
-  display: table-cell;
-  align-content: center;
-  justify-content: center; 
-  vertical-align: middle;
-} */
-
-
-
 .App{
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  align-content: space-evenly;
   /* background-image: url("rainbowbubblestext.png"); */
   background-color:lightblue;
 }
 
-#title{
-  font-size: 5em;
+/* ARROW */
+@keyframes bouncing {
+  0% {bottom: 0;}
+  50% {bottom: 20px;}
+  100% {bottom: 0;}
 }
 
-#second{
-  background-color: lightblue;
-  border-radius:20px;
-  padding-top: 20px;
-  padding-bottom: 30px;
+.arrow {
+  animation: bouncing 1s infinite ease-in-out;
+  background-image: url(./arrow.png);
+  background-size: contain;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left:-20px;
+  width: 40px;
+  height: 40px;
 }
-/* .contentContainer{
-  width:100%;
-  height:100vh;
-} */
-
-/* #first{
-  background-color: lightblue;
-}
-
-#second{
-  background-color: lightsteelblue;
-} */
