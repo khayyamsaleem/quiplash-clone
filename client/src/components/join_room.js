@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
-import logo from './logo.png';
-import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
+import '../App.css';
+
 import Header from "./header";
 
 
