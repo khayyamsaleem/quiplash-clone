@@ -26,7 +26,6 @@ const App = () => (
 
       <Home />
       <About />
-      <div className="arrow"></div>
       {/* <div className="contentContainer" id="second">
         <h2>Play now!</h2>
         <Container>
