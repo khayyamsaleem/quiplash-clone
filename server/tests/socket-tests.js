@@ -5,6 +5,7 @@ const server = require('./../server.js');
 const http = require('http');
 
 const io = require('socket.io-client');
+const url = "http://localhost:8080";
 
 describe('Socket tests', function() {
 	let testServer = undefined;
@@ -19,19 +20,34 @@ describe('Socket tests', function() {
 		done();
 	});
 
-	it("should print of connection", function(done) {
-		const client = io.connect("http://localhost:8080", options);
+	it("should receive connection", function(done) {
+		const client = io.connect(url, options);
 
-		client.once("connect", function() {
-			client.once("test", function(msg) {
+		client.once('connect', function() {
+			client.once('test', function(msg) {
 				msg.should.equal("received");
 				client.disconnect();
 				done();
 			});
 
-			client.emit("test", " ");	
+			client.emit('test', " ");	
 		});
 	
+	});
+
+	it("should return a random for the room code", function(done) {
+		const client = io.connect(url, options);
+		
+		client.once('connect', function() {
+		
+			client.once('create-private-room', function(rand) {
+				rand.should.be.a('number');
+				client.disconnect();
+				done();
+			});
+
+			client.emit('create-private-room', " ");
+		});
 	});
 
 });
