@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^2.1.8",
+    "typescript": "^3.4.2"
   },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
@@ -32,7 +35,7 @@
     "@babel/register": "^7.4.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.1",
     "react-bootstrap": "^1.0.0-beta.6"
   }
 }

@@ -1,0 +1,14 @@
+.createPublic{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    /* background-color: rgb(166, 112, 216); */
+    padding-top: 70px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+}
