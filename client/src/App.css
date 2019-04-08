@@ -11,7 +11,9 @@
   vertical-align: middle;
 } */
 
-
+.GridSpacing {
+  padding-top: 2%;
+}
 
 .App{
   display: grid;
@@ -27,6 +29,7 @@
 .join_room{
   padding-left: 3%;
   padding-top: 7%;
+  padding-right: 3%;
   display: block;
   height: 100vh;
   align-content: stretch;

@@ -6,6 +6,7 @@ import logo from '../logo.png';
 import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import join_room from "./join_room";
+import CreateRoom from "./CreateRoom";
 
 const Header = () => (
   <>
@@ -20,7 +21,7 @@ const Header = () => (
         {/* <Nav.Link href="#" style={{color:'white'}}>About</Nav.Link> */}
         <Container className="justify-content-end">
           <Row>
-            <Nav.Link href="#"><Col><Button variant="primary">Create a Room</Button></Col></Nav.Link>
+            <Nav.Link href="/CreateRoom"><Col><Button variant="primary">Create a Room</Button></Col></Nav.Link>
             <Nav.Link href="/join_room"><Col><Button variant="success">Join a Room</Button></Col></Nav.Link>
             <Nav.Link href="#"><Col><Button variant="danger">Add a Prompt</Button></Col></Nav.Link>
           </Row>
