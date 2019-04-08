@@ -26,6 +26,12 @@ mongoose.connect(dbURL, {useNewUrlParser: true});
 io.on('connection', socket => {
 	console.log(`Client ${socket.id} just connected`);
 	console.log('connected');
+	socket.on("test", function(msg, cb) {
+		cb = cb || function() {};
+		
+		socket.emit("test", "received");
+		cb(null, "Done");
+	});
 });
 
 //anything else 
