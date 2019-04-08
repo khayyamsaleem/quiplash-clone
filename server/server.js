@@ -5,6 +5,7 @@ const app = express();
 //socket req
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const ioUtil = require('./socket/socket-config.js');
 
 //check for prod env later
 require('dotenv').config();
@@ -22,19 +23,15 @@ mongoose.connect(dbURL, {useNewUrlParser: true});
 
 //middlewares
 
+const currentPrivateRooms = new Array();
+
 //socket functions
-io.on('connection', socket => {
-	console.log(`Client ${socket.id} just connected`);
-	console.log('connected');
-	socket.on("test", function(msg, cb) {
-		cb = cb || function() {};
-		
-		socket.emit("test", "received");
-		cb(null, "Done");
-	});
-});
+ioUtil(io);
+
 
 //anything else 
+
+//TODO: add index file in routes
 
 app.get('*', (req, res) => {
     res.status(400).json({ message: 'BAD REQUEST' });
