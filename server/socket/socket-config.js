@@ -35,17 +35,21 @@ module.exports = function(io) {
 		});
 
 		//TODO: verify code to join private room
-		socket.on('code-entered', function(msg, cb) {
+		socket.on('join-private-room', function(msg, cb) {
 			cb = cb || function() {};
+			console.log(` Here is the code recieved ${msg.code} and ${msg.name} \n`);
 
-			if (currentPrivateRooms.hasOwnProperty(msg)) {
-				if ((currentPrivateRooms[msg]).addPlayer(socket.id)){
-					socket.emit('code-entered', 'true');
-				} else {
-					socket.emit('code-entered', 'room full');
-				}
+			if (msg.code !== undefined) {
+					if (currentPrivateRooms.hasOwnProperty(msg.code)) {
+						console.log(`THis here is the code recieved ${msg.code} and the name ${msg.name}\n `);
+						if ((currentPrivateRooms[msg.code+""]).addPlayer(socket.id, msg.name)){
+							socket.emit('join-private-room', { msg: 'true', name:'' });
+						} else {
+							socket.emit('join-private-room', { msg: 'room full', name:''});
+						}
+					}
 			} else {
-				socket.emit('code-entered', 'code invalid');
+				socket.emit('join-private-room', { msg: 'code invalid', name:''});
 			}
 
 			cb(null, 'Done');

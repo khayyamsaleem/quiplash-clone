@@ -5,9 +5,10 @@
 class Player {
 
 	//initialize player with room code, socketid and score
-	constructor(code, socketId) {
+	constructor(code, socketId, name) {
 		this.code = code;
 		this.socketId = socketId;
+		this.name = name;
 		this.score = 0;
 	}
 
@@ -36,9 +37,9 @@ class Game {
 		this.max = max || 6; //for now 6 is default, can change later
 	}
 
-	addPlayer(socketId) {
+	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
-			const player = new Player(this.code, socketId);
+			const player = new Player(this.code, socketId, name);
 			
 			this.players[socketId] = player;
 			console.log((this.players[socketId]));
