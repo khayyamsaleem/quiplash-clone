@@ -6,16 +6,15 @@ import About from './pages/about/about';
 import Instructions from './pages/instructions/instructions';
 // import GenButton from './components/Button';
 // import Scoreboard from './components/Scoreboard';
-import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import NavBar from "./components/NavBar"
+import Header from "./components/header";
 import join_room from "./components/join_room";
-import CreateRoom from "./components/CreateRoom"
+import CreateRoom from "./components/CreateRoom";
 
 const App = () => (
   <>
     <div className="App">
-      <NavBar/>
+      <Header/>
       <Router>
         <div>
           <Route exact path="/" component={Home}/>

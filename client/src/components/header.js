@@ -3,7 +3,7 @@ import '../App.css';
 import logo from '../logo.png';
 import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 
-export default class NavBar extends React.Component{
+export default class Header extends React.Component{
   render(){
     return(
       <>

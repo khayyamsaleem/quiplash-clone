@@ -1,13 +1,13 @@
 import React from 'react';
 import '../App.css';
 
-import NavBar from "./NavBar";
+import Header from "./header";
 
 
 const join_room = () => {
   return(
 <>
-<NavBar/>
+<Header/>
 
 <div className="join_room">
   <h1>Join Room</h1>
