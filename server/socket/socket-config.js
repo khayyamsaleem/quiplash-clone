@@ -1,4 +1,6 @@
 module.exports = function(io) {
+	
+	const currentPrivateRooms = {};
 
 	//io function
 	io.on('connection', socket => {
@@ -18,12 +20,15 @@ module.exports = function(io) {
 	
 			//generate random number, can abstract this out so upper and lower bound are passed or are in env file
 			const rand = Math.floor((Math.random() * 8000) + 7000);
+			currentPrivateRooms[socket.id+""] = rand;
+
 			socket.emit('create-private-room', rand);
 			cb(null, "Done");
 		});
 
 		socket.on('disconnect', () => {
-			console.log(`Client ${socket.id} disconnected`);
+			currentPrivateRooms[socket.id+""] = undefined;
+			console.log(`Client ${socket.id} disconnected and key code is ${currentPrivateRooms[socket.id+""]}`);
 		});
 	});
 
