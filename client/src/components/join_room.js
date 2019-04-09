@@ -1,20 +1,18 @@
 import React from 'react';
 import '../App.css';
 
-import Header from "./header";
+import NavBar from "./NavBar";
 
 
 const join_room = () => {
   return(
 <>
-<Header/>
+<NavBar/>
 
 <div className="join_room">
   <h1>Join Room</h1>
   <div className = "room_container"> Rooms go in here </div>
 </div>
-
-
 
 </>
 

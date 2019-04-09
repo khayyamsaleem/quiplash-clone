@@ -1,13 +1,13 @@
 import React from 'react';
 import '../App.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import Header from "./header";
+import NavBar from "./NavBar";
 
 const CreateRoom = () => {
   return(
 <>
   <div className="join_room">
-  <Header/>
+  <NavBar/>
   <h1>Enter Player Names Below: </h1>
   <Form>
     <div className="GridSpacing">
