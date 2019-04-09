@@ -7,7 +7,27 @@
     height: 100vh;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: seagreen;
+    background-color: rgb(46, 138, 204);
     color: white;
     text-align: center;
+}
+
+#boxes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.box{
+    border: 3px solid black;
+    padding: 20px;
+    border-radius:25px;
+}
+
+#box1{
+    background-color: rgb(10, 187, 111);
+}
+
+#box2{
+    background-color: rgb(10, 187, 111);
 }
