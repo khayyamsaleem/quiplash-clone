@@ -15,6 +15,7 @@ module.exports = function(io) {
 			cb(null, "Done");
 		});
 
+		//create private room and recieve a code
 		socket.on('create-private-room', function(msg, cb) {
 			cb = cb || function() {};
 	
@@ -23,6 +24,16 @@ module.exports = function(io) {
 			currentPrivateRooms[socket.id+""] = rand;
 
 			socket.emit('create-private-room', rand);
+			cb(null, "Done");
+		});
+
+		//end game and room code will be removed
+		socket.on('game-over', function(msg, cb) {
+			cb = cb || function() {};
+	
+			currentPrivateRooms[socket.id+""] = undefined;
+			console.log(`Code is ${currentPrivateRooms[socket.id+""]}`);
+			socket.emit('game-over', "");
 			cb(null, "Done");
 		});
 
