@@ -3,6 +3,7 @@ import './App.css';
 import logo from './logo.png';
 import Home from './pages/home/home';
 import About from './pages/about/about';
+import Instructions from './pages/instructions/instructions';
 // import GenButton from './components/Button';
 // import Scoreboard from './components/Scoreboard';
 import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
@@ -10,7 +11,7 @@ import { Nav, Navbar, Button, Container, Row, Col } from 'react-bootstrap';
 const App = () => (
   <>
     <div className="App">
-      <Navbar fixed="top" bg="info" expand="lg">
+      <Navbar fixed="top" style={{backgroundColor: '#00649b'}} expand="lg">
         <Navbar.Brand href="#home">
           <img alt="quip logo" src={logo} width="85" height="44.25" className="d-inline-block align-top"/>
         </Navbar.Brand>
@@ -26,6 +27,7 @@ const App = () => (
 
       <Home />
       <About />
+      <Instructions />
       {/* <div className="contentContainer" id="second">
         <h2>Play now!</h2>
         <Container>

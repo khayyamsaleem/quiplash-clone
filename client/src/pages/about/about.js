@@ -7,8 +7,8 @@ export default class About extends React.Component{
             <div id="about">
                 <h2>What is Quip Thinking?</h2>
                 <p>Quip Thinking is all about coming up with the funniest 
-                lines, to fun prompts! Just use your device to answer prompts, like: <br></br>
-                "The name of your new plumbing company"<br></br>
+                lines, to fun prompts! Just use your device to answer prompts, like: <br></br><br></br>
+                "The name of your new plumbing company"<br></br><br></br>
                 You can play with anyone, no matter where they are. If you only 
                 want to play with friends and family, you can generate your 
                 own private room code that they can use to join your room. If your 
