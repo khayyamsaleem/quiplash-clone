@@ -33,13 +33,17 @@ module.exports = function(io) {
 	
 			currentPrivateRooms[socket.id+""] = undefined;
 			console.log(`Code is ${currentPrivateRooms[socket.id+""]}`);
+			delete currentPrivateRooms[socket.id+""];
 			socket.emit('game-over', "");
 			cb(null, "Done");
 		});
 
+
+		//on disconnect, 
 		socket.on('disconnect', () => {
 			currentPrivateRooms[socket.id+""] = undefined;
 			console.log(`Client ${socket.id} disconnected and key code is ${currentPrivateRooms[socket.id+""]}`);
+			delete currentPrivateRooms[socket.id+""];
 		});
 	});
 
