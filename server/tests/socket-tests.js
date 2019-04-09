@@ -50,4 +50,18 @@ describe('Socket tests', function() {
 		});
 	});
 
+	it("should remove code when game is done", function(done) {
+		const client = io.connect(url, options);
+		
+		client.once('connect', function() {
+		
+			client.once('game-over', function(rand) {
+				rand.should.have.lengthOf(0);
+				client.disconnect();
+				done();
+			});
+
+			client.emit('game-over', " ");
+		});
+	});
 });
