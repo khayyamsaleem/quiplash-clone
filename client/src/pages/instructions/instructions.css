@@ -22,6 +22,7 @@
     border: 3px solid black;
     padding: 20px;
     border-radius:25px;
+    width: 48%;
 }
 
 #box1{
@@ -31,3 +32,12 @@
 #box2{
     background-color: rgb(10, 187, 111);
 }
+
+@media screen and (min-width: 581px) and (max-width: 800px){
+    #boxes{
+        display: inline-block;
+    }
+    .box{
+        width:100%;
+    }
+} 
