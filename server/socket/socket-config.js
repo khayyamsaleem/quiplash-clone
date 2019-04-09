@@ -38,6 +38,10 @@ module.exports = function(io) {
 			cb(null, "Done");
 		});
 
+		//TODO: verify code to join private room
+		//TODO: return number of quips when game starts
+		//TODO: create a public room
+		//TODO; join a public room 
 
 		//on disconnect, 
 		socket.on('disconnect', () => {
