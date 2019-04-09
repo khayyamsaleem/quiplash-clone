@@ -1,10 +1,11 @@
+const Game = require('../custom-classes/game.js');
+
 module.exports = function(io) {
 	
 	const currentPrivateRooms = {};
-	const max = 5;
 
 	// a room is of the form
-	// code: { players: val, etc }
+	// code: { Game }
 
 	//io function
 	io.on('connection', socket => {
@@ -25,7 +26,9 @@ module.exports = function(io) {
 	
 			//generate random number, can abstract this out so upper and lower bound are passed or are in env file
 			const rand = Math.floor((Math.random() * 8000) + 7000);
-			currentPrivateRooms[rand+""] = { players: 0 };
+
+			const game = new Game(rand);
+			currentPrivateRooms[rand+""] = game;
 
 			socket.emit('create-private-room', rand);
 			cb(null, 'Done');
@@ -34,11 +37,9 @@ module.exports = function(io) {
 		//TODO: verify code to join private room
 		socket.on('code-entered', function(msg, cb) {
 			cb = cb || function() {};
-//			const rand = msg.parseInt(msg, 10);
 
 			if (currentPrivateRooms.hasOwnProperty(msg)) {
-				if (currentPrivateRooms[msg].players < max) {
-					currentPrivateRooms[msg].players += 1;
+				if ((currentPrivateRooms[msg]).addPlayer(socket.id)){
 					socket.emit('code-entered', 'true');
 				} else {
 					socket.emit('code-entered', 'room full');
@@ -53,10 +54,12 @@ module.exports = function(io) {
 		//end game and room code will be removed
 		socket.on('game-over', function(msg, cb) {
 			cb = cb || function() {};
-	
-			currentPrivateRooms[socket.id+""] = undefined;
-			console.log(`Code is ${currentPrivateRooms[socket.id+""]}`);
-			delete currentPrivateRooms[socket.id+""];
+			
+			if (currentPrivateRooms[msg] !== undefined) {
+				currentPrivateRooms[msg] = undefined;
+				console.log(`Code is ${currentPrivateRooms[msg]}`);
+				delete currentPrivateRooms[msg];
+			}
 			socket.emit('game-over', "");
 			cb(null, "Done");
 		});
