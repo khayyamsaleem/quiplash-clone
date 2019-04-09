@@ -1,5 +1,7 @@
 import React from 'react';
 import './home.css';
+import About from '../about/about';
+import Instructions from '../instructions/instructions';
 
 export default class Home extends React.Component{
     render(){
@@ -10,6 +12,8 @@ export default class Home extends React.Component{
                 <h4 id="byline">the online game of witty lines</h4> 
             </div>
             <div className="arrow"></div>
+            <About/>
+            <Instructions/>
             </>
         )
     }
