@@ -57,6 +57,10 @@ class Game {
 		(this.players[socketId]).updateScore(point);
 		console.log((this.players[socketId]));
 	}
+
+	getNumberofPlayers() {
+		return Object.keys(this.players).length;	
+	}
 }
 
 
