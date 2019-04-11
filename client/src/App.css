@@ -1,24 +1,6 @@
 .App{
 }
 
-.join_room{
-  padding-left: 3%;
-  padding-top: 7%;
-  padding-right: 3%;
-  display: block;
-  height: 100vh;
-  align-content: stretch;
-  /* background-image: url("rainbowbubblestext.png"); */
-  background-color:lightblue;
-
-}
-
-.room_container{
-  width: 90%;
-  height: 80%;
-  border: 1px solid black;
-}
-
 #title{
   font-size: 5em;
 }
