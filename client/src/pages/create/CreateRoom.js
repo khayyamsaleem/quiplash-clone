@@ -1,12 +1,12 @@
 import React from 'react';
-import '../App.css';
+import './create.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import Header from "./header";
+import Header from "../../components/header";
 
 const CreateRoom = () => {
   return(
 <>
-  <div className="join_room">
+  <div className="createRoom">
   <Header/>
   <h1>Enter Player Names Below: </h1>
   <Form>

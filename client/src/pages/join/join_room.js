@@ -1,7 +1,7 @@
 import React from 'react';
-import '../App.css';
+import './join.css';
 
-import Header from "./header";
+import Header from "../../components/header";
 
 
 const join_room = () => {
@@ -9,8 +9,8 @@ const join_room = () => {
 <>
 <Header/>
 
-<div className="join_room">
-  <h1>Join Room</h1>
+<div className="joinRoom">
+  <h1>Join a Public Room</h1>
   <div className = "room_container"> Rooms go in here </div>
 </div>
 

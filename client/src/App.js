@@ -6,8 +6,8 @@ import Home from './pages/home/home';
 // import Scoreboard from './components/Scoreboard';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from "./components/header";
-import join_room from "./components/join_room";
-import CreateRoom from "./components/CreateRoom";
+import join_room from "./pages/join/join_room";
+import CreateRoom from "./pages/create/CreateRoom";
 
 const App = () => (
   <>
