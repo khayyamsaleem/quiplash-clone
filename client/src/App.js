@@ -6,7 +6,7 @@ import Home from './pages/home/home';
 // import Scoreboard from './components/Scoreboard';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from "./components/header";
-import join_room from "./pages/join/join_room";
+import JoinRoom from "./pages/join/JoinRoom";
 import CreateRoom from "./pages/create/CreateRoom";
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
       <Router>
         <div>
           <Route exact path="/" component={Home}/>
-          <Route path = "/join_room" component={join_room}/>
+          <Route path = "/JoinRoom" component={JoinRoom}/>
           <Route path = "/CreateRoom" component={CreateRoom}/>
         </div>
 

@@ -4,7 +4,7 @@ import './join.css';
 import Header from "../../components/header";
 
 
-const join_room = () => {
+const JoinRoom = () => {
   return(
 <>
 <Header/>
@@ -20,4 +20,4 @@ const join_room = () => {
 
 }
 
-export default join_room;
+export default JoinRoom;

@@ -15,7 +15,7 @@ export default class Header extends React.Component{
           <Container className="justify-content-end">
             <Row>
               <Nav.Link href="/CreateRoom"><Col><Button variant="primary">Create a Room</Button></Col></Nav.Link>
-              <Nav.Link href="/join_room"><Col><Button variant="success">Join a Room</Button></Col></Nav.Link>
+              <Nav.Link href="/JoinRoom"><Col><Button variant="success">Join a Room</Button></Col></Nav.Link>
               <Nav.Link href="#"><Col><Button variant="danger">Add a Prompt</Button></Col></Nav.Link>
             </Row>
           </Container>
