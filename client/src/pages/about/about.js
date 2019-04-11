@@ -12,7 +12,7 @@ export default class About extends React.Component{
                 You can play with anyone, no matter where they are. If you only 
                 want to play with friends and family, you can generate your 
                 own private room code that they can use to join your room. If your 
-                friends arent online, you can always join a public room and play 
+                friends aren't online, you can always join a public room and play 
                 with some potential new friends!
                 </p>
             </div>
