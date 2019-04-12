@@ -23,6 +23,18 @@ function getPrompts(limit, rand) {
 	});
 }
 
+function getRandomPrompts(n) {
+        Prompt.findRandom({}, {}, {limit: n}, function(err, results) {
+                if(!err) {
+                        console.log(`results ${results}\n`);
+			return results;
+                } else {
+                        console.log(`err is ${err}\n`);	
+			return null;
+                }
+        });
+}
+
 function getPairs(players, round) {
 	//make sure that the first element is equal to the last element
 	players.push(players[0]);
