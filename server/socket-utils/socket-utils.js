@@ -67,6 +67,7 @@ console.log(getPairs(['p1', 'p2', 'p3'], 3)); */
 
 module.exports = {
 	getPrompts,
-	getPairs
+	getPairs,
+	getRandomPrompts
 }
 
