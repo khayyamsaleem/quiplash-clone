@@ -8,7 +8,9 @@ const CreateRoom = () => {
 <>
   <div className="createRoom">
   <Header/>
-  <h1>Enter Player Names Below: </h1>
+  <Button variant="primary" type="submit">Create a Private Room</Button>
+  <Button variant="success" type="submit">Create a Public Room</Button>
+  {/* <h1>Enter Player Names Below: </h1>
   <Form>
     <div className="GridSpacing">
       <Row>
@@ -57,7 +59,7 @@ const CreateRoom = () => {
     <Button variant="primary" type="submit">
       Start the Game!
     </Button>
-  </Form>
+  </Form> */}
 
   </div>
 </>

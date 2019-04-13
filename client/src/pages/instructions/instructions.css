@@ -7,8 +7,8 @@
     height: 100vh;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: rgb(46, 138, 204);
-    color: white;
+    /* background-color: rgb(46, 138, 204); */
+    /* color: white; */
     text-align: center;
 }
 
@@ -26,11 +26,11 @@
 }
 
 #box1{
-    background-color: rgb(10, 187, 111);
+    background-color: lemonchiffon;
 }
 
 #box2{
-    background-color: rgb(10, 187, 111);
+    background-color: lemonchiffon;
 }
 
 @media screen and (min-width: 581px) and (max-width: 800px){

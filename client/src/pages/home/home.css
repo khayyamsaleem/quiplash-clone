@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient(to bottom, #ff6600 0%, #ffff99 100%);
+}
 #home{
     display: flex;
     align-items: center;
@@ -6,8 +9,8 @@
     width: 100%;
     height: 100vh;
     text-align: center;
-    background-color: #bc4577;
-    color: white;
+    /* background-color: #bc4577; */
+    /* color: white; */
 }
 
 #title{
