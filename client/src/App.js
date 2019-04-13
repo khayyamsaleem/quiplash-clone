@@ -7,7 +7,7 @@ import Home from './pages/home/home';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from "./components/header";
 import JoinRoom from "./pages/join/JoinRoom";
-import CreateRoom from "./pages/create/CreateRoom";
+import CreatePublic from "./pages/create/CreatePublic";
 
 const App = () => (
   <>
@@ -16,8 +16,10 @@ const App = () => (
       <Router>
         <div>
           <Route exact path="/" component={Home}/>
+          <Route path = "/CreatePublic" component={CreatePublic}/>
+          {/* <Route path = "/CreatePrivate" component={CreatePrivate}/> */}
           <Route path = "/JoinRoom" component={JoinRoom}/>
-          <Route path = "/CreateRoom" component={CreateRoom}/>
+          {/* <Route path = "/AddPrompt" component={AddPrompt} /> */}
         </div>
 
       </Router>
