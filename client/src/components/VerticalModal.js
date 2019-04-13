@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 export class VerticalModal extends React.Component {
     render() {
@@ -7,19 +7,21 @@ export class VerticalModal extends React.Component {
         <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              Modal heading
+            Create a Private Room
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-              ac consectetur ac, vestibulum at eros.
-            </p>
+            <Form>
+                <Form.Label>Room Name</Form.Label>
+                <Form.Control placeholder="I love cheesecake" />
+                <Form.Text className="text-muted">
+                    Make your room fun and original!
+                </Form.Text>
+            </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
+            <Button>Submit</Button>
           </Modal.Footer>
         </Modal>
       );

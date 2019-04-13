@@ -16,8 +16,6 @@ const App = () => (
       <Router>
         <div>
           <Route exact path="/" component={Home}/>
-          <Route path = "/CreatePublic" component={CreatePublic}/>
-          {/* <Route path = "/CreatePrivate" component={CreatePrivate}/> */}
           <Route path = "/JoinRoom" component={JoinRoom}/>
           {/* <Route path = "/AddPrompt" component={AddPrompt} /> */}
         </div>
