@@ -24,9 +24,9 @@ function getPrompts(limit, rand) {
 }
 
 function getRandomPrompts(n) {
-        Prompt.findRandom({}, {}, {limit: n}, function(err, results) {
+        Prompt.findRandom({}, {}, {limit: n}, async function(err, results) {
                 if(!err) {
-                        console.log(`results ${results}\n`);
+                        console.log(`results ${await results}\n`);
 			return results;
                 } else {
                         console.log(`err is ${err}\n`);	
@@ -35,6 +35,16 @@ function getRandomPrompts(n) {
         });
 }
 
+async function getRandom(n) {
+	try {
+		const prompts = await Prompt.findRandom({}, {}, {limit: n}).exec();
+		console.log("IN GET RANDOM: ", prompts);
+		return prompts
+	} catch(err) {
+		console.log(`err is ${err}\n`)
+	}
+}
+ 
 function getPairs(players, round) {
 	//make sure that the first element is equal to the last element
 	players.push(players[0]);
@@ -63,11 +73,14 @@ function getPairs(players, round) {
 /* TODO: Test cases
 getPrompts(4, 5);
 console.log(getPairs(['p1', 'p2', 'p3'], 3)); */
+getRandomPrompts(5);
+console.log(getRandomPrompts(5));
 
 
 module.exports = {
 	getPrompts,
 	getPairs,
-	getRandomPrompts
+	getRandomPrompts,
+	getRandom
 }
 
