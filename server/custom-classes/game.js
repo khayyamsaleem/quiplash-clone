@@ -10,6 +10,7 @@ class Player {
 		this.socketId = socketId;
 		this.name = name;
 		this.score = 0;
+		this.prompts = [];
 	}
 
 	//increase player score by some points
@@ -21,6 +22,14 @@ class Player {
 
 	getScore() {
 		return this.score;
+	}
+
+	addPrompt(p) {
+		this.prompts.push(p);
+	}
+
+	getPrompts() {
+		return this.prompts;
 	}
 }
 /*
