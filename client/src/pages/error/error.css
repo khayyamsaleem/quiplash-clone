@@ -1,0 +1,25 @@
+.errorpage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: palevioletred;
+    padding-top: 70px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+}
+
+
+
+/* #room1{
+    background-color: lightblue;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+} */
