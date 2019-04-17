@@ -7,7 +7,7 @@ import Home from './pages/home/home';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/header";
 import JoinRoom from "./pages/join/JoinRoom";
-import CreatePublic from "./pages/create/CreatePublic";
+import AddPrompt from "./pages/add/addPrompt";
 import Error from "./pages/error/Error";
 
 const App = () => (
@@ -18,10 +18,9 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path = "/JoinRoom" component={JoinRoom}/>
+          <Route path = "/AddPrompt" component={AddPrompt} />
           <Route component={Error}/>
-          {/* <Route path = "/AddPrompt" component={AddPrompt} /> */}
         </Switch>
-
       </Router>
   </div>
 </>

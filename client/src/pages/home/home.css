@@ -15,6 +15,9 @@ body{
     font-size: 5em;
 }
 
+Form{
+    width: 200px;
+}
 /* ARROW */
 @keyframes bouncing {
     0% {bottom: 0;}
