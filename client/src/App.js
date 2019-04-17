@@ -4,22 +4,23 @@ import './App.css';
 import Home from './pages/home/home';
 // import GenButton from './components/Button';
 // import Scoreboard from './components/Scoreboard';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/header";
 import JoinRoom from "./pages/join/JoinRoom";
 import AddPrompt from "./pages/add/addPrompt";
+import Error from "./pages/error/Error";
 
 const App = () => (
   <>
     <div className="App">
       <Header/>
       <Router>
-        <div>
+        <Switch>
           <Route exact path="/" component={Home}/>
           <Route path = "/JoinRoom" component={JoinRoom}/>
           <Route path = "/AddPrompt" component={AddPrompt} />
-        </div>
-
+          <Route component={Error}/>
+        </Switch>
       </Router>
   </div>
 </>
