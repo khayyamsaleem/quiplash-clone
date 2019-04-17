@@ -1,19 +1,19 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-export class VerticalModal extends React.Component {
+export class PublicModal extends React.Component {
     render() {
       return (
         <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-            Create a Private Room
+            Create a Public Room
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
                 <Form.Label>Room Name</Form.Label>
-                <Form.Control placeholder="I love cheesecake" />
+                <Form.Control placeholder="Enter a room name" />
                 <Form.Text className="text-muted">
                     Make your room fun and original!
                 </Form.Text>
