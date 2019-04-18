@@ -6,7 +6,7 @@ export default class About extends React.Component{
     render(){
         return(
             <div id="about">
-                <h2>What is Quip Thinking?</h2>
+                <h1>What is Quip Thinking?</h1>
                 <div id="boxes">
                     <div className="box" id="box1">
                         <ImageCarousel />
