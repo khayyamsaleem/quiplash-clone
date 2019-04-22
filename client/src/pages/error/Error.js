@@ -5,7 +5,7 @@ const Error = () => {
   return(
 
 <div className="errorpage">
-    <h1>Page does not exist</h1>
+    <h1>Page not found</h1>
 </div>
 
   );

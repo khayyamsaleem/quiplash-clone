@@ -31,4 +31,12 @@ const Game = () => {
 
 }
 
+//https://pusher.com/tutorials/comment-voting-react-node
+voting = event => {
+       const { name, value } = event.target;
+       this.setState({
+         [name]: value,
+       });
+     };
+
 export default Game;
