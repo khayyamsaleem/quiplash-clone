@@ -1,11 +1,12 @@
 import React from "react";
 import "../App.css";
 import Header from "./header";
+import { Nav, Form, Row, Col, Button } from "react-bootstrap";
 
 const AddPrompt = () => {
 	return (
-		<><Header/>
-
+		<>
+		<Header/>
 		<div className="AddPrompt">
 
 			<h1>Enter Prompt:</h1>
@@ -16,15 +17,14 @@ const AddPrompt = () => {
 
 				<Row>
 					<Col>
-						<Form.Control placeholder="prompt"/>
+						<Form.Control as="textarea" rows="3" placeholder="prompt"/>
 					</Col>
 				</Row>
-
-				<Button variant="primary" type="submit">Submit!</Button>
-
+				<Nav.Link href="/Game"><Button variant="primary" type="submit">Submit!</Button></Nav.Link>
 			</Form>
 
 		</div>
+		</>
 	)
 }
 

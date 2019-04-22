@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Nav } from 'react-bootstrap';
 
 export class PublicModal extends React.Component {
     render() {
@@ -21,7 +21,7 @@ export class PublicModal extends React.Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
-            <Button>Submit</Button>
+            <Nav.Link href="/Game"><Button>Submit</Button></Nav.Link>
           </Modal.Footer>
         </Modal>
       );
