@@ -6,24 +6,25 @@ import Header from "../../components/header";
 const Game = () => {
   return(
 <>
+  <div className="createPublic">
   <Header/>
   <Jumbotron>
     <h1>Round #</h1>
     <p>
       SAMPLE PROMPT HERE
     </p>
-  </Jumbotron>;
+  </Jumbotron>
   <Row>
     <Col>
       {/* we need to figure out how to hold button animation until all
         user votes go through or time runs out */}
-      <Nav.Link href="/"><Button variant="light">QUIP 1 HERE </Button></Nav.Link>
+      <Nav.Link href="#"><Button variant="light">QUIP 1 HERE </Button></Nav.Link>
     </Col>
     <Col>
-      <Nav.Link href="/"><Button variant="dark">QUIP 2 HERE</Button></Nav.Link>
+      <Nav.Link href="#"><Button variant="dark">QUIP 2 HERE</Button></Nav.Link>
     </Col>
   </Row>
-
+  </div>
 </>
 
   )
