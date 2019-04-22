@@ -9,6 +9,8 @@ const url = "http://localhost:8080";
 
 describe('Socket tests', function() {
 	let testServer = undefined;
+	let trand;
+
 	const options = {
 		transports: ['websocket'],
 		'force new connection': true
@@ -41,6 +43,7 @@ describe('Socket tests', function() {
 		client.once('connect', function() {
 		
 			client.once('create-private-room', function(rand) {
+				trand = rand;
 				rand.should.be.a('number');
 				client.disconnect();
 				done();
@@ -50,6 +53,24 @@ describe('Socket tests', function() {
 		});
 	});
 
+	it('should join game with valid code', function(done) {
+		const client = io.connect(url, options);
+		
+		client.once('connect', function() {
+			
+			client.once('code-entered', function(msg) {
+				msg.should.equal('true');
+				client.disconnect();
+				done();
+			});
+			
+			//send random code
+			console.log(`Sent random ${trand}\n`);
+			client.emit('code-entered', trand);
+		});
+
+	});
+
 	it("should remove code when game is done", function(done) {
 		const client = io.connect(url, options);
 		
@@ -57,11 +78,31 @@ describe('Socket tests', function() {
 		
 			client.once('game-over', function(rand) {
 				rand.should.have.lengthOf(0);
+				trand = undefined;	//code is now invalid
 				client.disconnect();
 				done();
 			});
 
-			client.emit('game-over', " ");
+			//send random code
+			client.emit('game-over', trand);
 		});
+	});
+
+	it('should not join game with invalid code', function(done) {
+		const client = io.connect(url, options);
+		
+		client.once('connect', function() {
+			
+			client.once('code-entered', function(msg) {
+				msg.should.equal('code invalid');
+				client.disconnect();
+				done();
+			});
+			
+			//send random code
+			console.log(`Sent random ${trand}\n`);
+			client.emit('code-entered', trand);
+		});
+
 	});
 });
