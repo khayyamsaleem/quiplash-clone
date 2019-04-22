@@ -1,6 +1,10 @@
 module.exports = function(io) {
 	
 	const currentPrivateRooms = {};
+	const max = 5;
+
+	// a room is of the form
+	// code: { players: val, etc }
 
 	//io function
 	io.on('connection', socket => {
@@ -11,8 +15,8 @@ module.exports = function(io) {
 		socket.on('test', function(msg, cb) {
 			cb = cb || function() {};
 
-			socket.emit("test", "received");
-			cb(null, "Done");
+			socket.emit('test', 'received');
+			cb(null, 'Done');
 		});
 
 		//create private room and recieve a code
@@ -21,10 +25,29 @@ module.exports = function(io) {
 	
 			//generate random number, can abstract this out so upper and lower bound are passed or are in env file
 			const rand = Math.floor((Math.random() * 8000) + 7000);
-			currentPrivateRooms[socket.id+""] = rand;
+			currentPrivateRooms[rand+""] = { players: 0 };
 
 			socket.emit('create-private-room', rand);
-			cb(null, "Done");
+			cb(null, 'Done');
+		});
+
+		//TODO: verify code to join private room
+		socket.on('code-entered', function(msg, cb) {
+			cb = cb || function() {};
+//			const rand = msg.parseInt(msg, 10);
+
+			if (currentPrivateRooms.hasOwnProperty(msg)) {
+				if (currentPrivateRooms[msg].players < max) {
+					currentPrivateRooms[msg].players += 1;
+					socket.emit('code-entered', 'true');
+				} else {
+					socket.emit('code-entered', 'room full');
+				}
+			} else {
+				socket.emit('code-entered', 'code invalid');
+			}
+
+			cb(null, 'Done');
 		});
 
 		//end game and room code will be removed
@@ -38,7 +61,6 @@ module.exports = function(io) {
 			cb(null, "Done");
 		});
 
-		//TODO: verify code to join private room
 		//TODO: return number of quips when game starts
 		//TODO: create a public room
 		//TODO; join a public room 
