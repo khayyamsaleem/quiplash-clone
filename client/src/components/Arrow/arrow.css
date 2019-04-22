@@ -9,7 +9,7 @@
     animation: bouncing 1s infinite ease-in-out;
     background-image: url(./arrow.png);
     background-size: contain;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 50%;
     margin-left:-20px;
