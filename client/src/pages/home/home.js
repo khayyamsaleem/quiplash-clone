@@ -3,6 +3,7 @@ import './home.css';
 import About from '../about/about';
 import Arrow from '../../components/Arrow/Arrow';
 import {Form, Button} from 'react-bootstrap';
+import { Link } from "react-scroll";
 
 export default class Home extends React.Component{
     render(){
@@ -16,8 +17,8 @@ export default class Home extends React.Component{
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>
             </div>
-            <Arrow />
-            <About />
+            <Link to="about" smooth={true}><Arrow /></Link>
+            <About id="about"/>
             </>
         )
     }
