@@ -17,7 +17,7 @@ export default class Home extends React.Component{
                 </Form>
             </div>
             <Arrow />
-            <About/>
+            <About />
             </>
         )
     }
