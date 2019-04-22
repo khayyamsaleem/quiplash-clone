@@ -18,7 +18,7 @@ export default class Header extends React.Component{
       <>
         <Navbar fixed="top" style={{backgroundColor: '#00649b'}} expand="lg">
           <Navbar.Brand href="/">
-            <img alt="quip logo" src={logo} style={{color: 'black'}} width="85" height="44.25" className="d-inline-block align-top"/>
+            <img alt="quip logo" src={logo} style={{color: 'black'}} width="85" height="44.25" className="d-inline-block align-top" onClick={this.scrollToTop}/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" style={{ float: 'right'}}>
