@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import About from '../about/about';
+import Arrow from '../../components/Arrow/Arrow';
 import {Form, Button} from 'react-bootstrap';
 
 export default class Home extends React.Component{
@@ -15,7 +16,7 @@ export default class Home extends React.Component{
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>
             </div>
-            <div className="arrow"></div>
+            <Arrow />
             <About/>
             </>
         )
