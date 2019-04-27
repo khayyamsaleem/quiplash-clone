@@ -39,4 +39,24 @@ voting = event => {
        });
      };
 
-export default Game;
+
+class Scoreboard{
+  constructor(playerScores){
+    this.playerScores = playerScores;
+  }
+
+  scores(){
+    return this.playerScores;
+  }
+
+}
+
+class Player{
+  constructor(name){
+    this.name = name;
+    this.score = 0;
+  }
+
+}
+
+export default Game, voting;
