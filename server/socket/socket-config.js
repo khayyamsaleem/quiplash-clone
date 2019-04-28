@@ -3,6 +3,7 @@ const Game = require('../custom-classes/game.js');
 module.exports = function(io) {
 	
 	const currentPrivateRooms = {};
+	const min = 3;
 
 	// a room is of the form
 	// code: { Game }
@@ -39,9 +40,11 @@ module.exports = function(io) {
 			cb = cb || function() {};
 			console.log(` Here is the code recieved ${msg.code} and ${msg.name} \n`);
 
+		    // msg.code is room code
+			// msg.name is players name
 			if (msg.code !== undefined) {
 					if (currentPrivateRooms.hasOwnProperty(msg.code)) {
-						console.log(`THis here is the code recieved ${msg.code} and the name ${msg.name}\n `);
+						// if game exists add user
 						if ((currentPrivateRooms[msg.code+""]).addPlayer(socket.id, msg.name)){
 							socket.emit('join-private-room', { msg: 'true', name:'' });
 						} else {
@@ -50,6 +53,28 @@ module.exports = function(io) {
 					}
 			} else {
 				socket.emit('join-private-room', { msg: 'code invalid', name:''});
+			}
+
+			cb(null, 'Done');
+		});
+
+		socket.on('start-game', function(msg, cb) {
+			cb = cb || function() {};
+			
+			// check that the minimum threshold is met
+			// msg.code is room code
+			if(currentPrivateRooms.hasOwnProperty(msg.code)) {
+				//check if the number of players is at least 3
+				const num = (currentPrivateRooms[msg.code]).getNumberofPlayers();
+				console.log(`here is the number ${num}\n`);
+
+				if (num >= min) {
+					socket.emit('start-game', { start: 'true' }); 
+				} else {
+					socket.emit('start-game', { start: 'false' });
+				}
+			} else {
+				socket.emit('start-game', { start: 'false' });	
 			}
 
 			cb(null, 'Done');

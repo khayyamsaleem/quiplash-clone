@@ -74,7 +74,24 @@ describe('Socket tests', function() {
 
 	});
 
-	it("should remove code when game is done", function(done) {
+	it('should not join game unless minimum of 3 players', function(done) {
+		const client = io.connect(url, options) 
+
+		client.once('connect', function() {
+			client.once('start-game', function(msg) {
+				(msg.start).should.equal('false');
+				client.disconnect();
+				done();
+			});
+
+			client.emit('start-game', { code: trand });
+
+		});
+	
+	});
+
+
+	it('should remove code when game is done', function(done) {
 		const client = io.connect(url, options);
 		
 		client.once('connect', function() {
