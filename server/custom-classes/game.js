@@ -34,7 +34,7 @@ class Game {
 	constructor(code, max) {
 		this.code = code;
 		this.players = {};
-		this.max = max || 6; //for now 6 is default, can change later
+		this.max = max || 8; //for now 8 is default, can change later
 	}
 
 	addPlayer(socketId, name) {
