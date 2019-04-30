@@ -1,21 +1,22 @@
 import React from 'react';
 import './create.css';
-import { Nav, Form, Row, Col, Button, Jumbotron } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import Header from "../../components/header";
 
 const CreatePrivate = () => {
   return(
 <>
+  <Header>
   <div className="create">
     <Form>
       <h1> SAMPLE PRIVATE ROOM CODE</h1>
       <br />
       <Row>
         <Col>
-          <Form.Control placeholder="Player 1 Slot Still Open" />
+          <Form.Control placeholder="You Are Here" />
         </Col>
         <Col>
-          <Form.Control placeholder="Player 2 Slot Still Open" />
+          <Form.Control placeholder="Player 5 Slot Still Open" />
         </Col>
       </Row>
 
@@ -55,6 +56,7 @@ const CreatePrivate = () => {
       </Button>
     </Form>
   </div>
+  </Header>
 </>
 
   )

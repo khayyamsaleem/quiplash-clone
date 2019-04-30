@@ -1,12 +1,12 @@
 import React from 'react';
 import './create.css';
-import { Nav, Form, Row, Col, Button, Jumbotron } from 'react-bootstrap';
+import { Nav, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import Header from "../../components/header";
 
 const Game = () => {
   return(
 <>
-  <div className="createPublic">
+  <div className="create">
   <Header/>
   <Jumbotron>
     <h1>Round #</h1>
