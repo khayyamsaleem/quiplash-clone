@@ -35,21 +35,13 @@
     padding: 10px;
     border-radius:25px;
     background-color: lemonchiffon;
-    width: 1500px;
 }
 
-@media screen and (min-width: 581px) and (max-width: 800px){
+@media screen and (max-width: 800px){
     #boxes{
         display: inline-block;
     }
-    .box{
-        width:100%;
+    #box2{
+        width:auto;
     }
 } 
-
-@media (max-width: 900px) {
-    .carousel {
-      width:auto;
-      height:auto;
-    }
-}
