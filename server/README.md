@@ -15,11 +15,21 @@ PORT_TEST=your-test-port
 
 To get the [prompts](https://github.com/nyu-software-engineering/quip-thinking/blob/master/prompts/prompts.csv) on your local machine, `cd server/` and run the command `npm run updateDB`.
 
-To **test**: `npm run test`  
-To **start**: `npm run start`
+
+
+### Real-Time App
+The server is implemented using [socket-io](https://npmjs.com/package/socket.io). There are a number of event listeners which can be found in the [socket-config.js](https://github.com/nyu-software-engineering/quip-thinking/blob/master/server/socket/socket-config.js).  
+
+To **start** : `npm run sock`.  
+To **test**: `npm run sockTest`.  
+The test cases are also a good reference for how to use the socket.io events on the client side.  
+
 
 ### API's
 The following api's can be used to access the database.
+
+To **test**: `npm run test`  
+To **start**: `npm run start`
 
 ##### POST '/prompt/create-prompt'
 

@@ -23,7 +23,7 @@ mongoose.connect(dbURL, {useNewUrlParser: true});
 
 //middlewares
 
-const currentPrivateRooms = new Array();
+//const currentPrivateRooms = new Array();
 
 //socket functions
 ioUtil(io);

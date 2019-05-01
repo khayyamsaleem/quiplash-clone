@@ -7,65 +7,57 @@ const CreateRoom = () => {
   return(
 <>
   <div className="createPublic">
-  <Header/>
-  <Form>
-        
-
-  </Form>
-
-
-  {/* <Button variant="primary" type="submit">Create a Private Room</Button> */}
-  {/* <Button variant="success" type="submit">Create a Public Room</Button> */}
-  {/* <h1>Enter Player Names Below: </h1>
-  <Form>
-    <div className="GridSpacing">
+  <Header>
+  <div className="create">
+    <Form>
+      <h1> Still Waiting on Players... </h1>
+      <br />
       <Row>
         <Col>
-          <Form.Control placeholder="Player 1" />
+          <Form.Control placeholder="You are Here" />
         </Col>
         <Col>
-          <Form.Control placeholder="Player 5" />
+          <Form.Control placeholder="Player 5 Slot Still Open" />
         </Col>
       </Row>
-    </div>
 
-    <div className="GridSpacing">
-    <Row>
-      <Col>
-        <Form.Control placeholder="Player 2" />
-      </Col>
-      <Col>
-        <Form.Control placeholder="Player 6" />
-      </Col>
-    </Row>
-    </div>
+      <br />
+      <Row>
+        <Col>
+          <Form.Control placeholder="Player 2 Slot Still Open" />
+        </Col>
+        <Col>
+          <Form.Control placeholder="Player 6 Slot Still Open" />
+        </Col>
+      </Row>
 
-    <div className="GridSpacing">
-    <Row>
-      <Col>
-        <Form.Control placeholder="Player 3" />
-      </Col>
-      <Col>
-        <Form.Control placeholder="Player 7" />
-      </Col>
-    </Row>
-    </div>
+      <br />
+      <Row>
+        <Col>
+          <Form.Control placeholder="Player 3 Slot Still Open" />
+        </Col>
+        <Col>
+          <Form.Control placeholder="Player 7 Slot Still Open" />
+        </Col>
+      </Row>
 
-    <div className="GridSpacing">
-    <Row>
-      <Col>
-        <Form.Control placeholder="Player 4" />
-      </Col>
-      <Col>
-        <Form.Control placeholder="Player 8" />
-      </Col>
-    </Row>
-    </div>
-    <br/>
-    <Button variant="primary" type="submit">
-      Start the Game!
-    </Button>
-  </Form> */}
+      <br />
+      <Row>
+        <Col>
+          <Form.Control placeholder="Player 4 Slot Still Open" />
+        </Col>
+        <Col>
+          <Form.Control placeholder="Player 8 Slot Still Open" />
+        </Col>
+      </Row>
+
+      <br/>
+      <Button variant="primary" type="submit">
+        Start the Game!
+      </Button>
+    </Form>
+  </div>
+  </Header>
 
   </div>
 </>
