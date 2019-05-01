@@ -9,7 +9,7 @@ export class PrivateModal extends React.Component {
             <Modal.Title id="contained-modal-title-vcenter">Create a Private Room</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form>
+            <Form style={{width: '100%'}}>
                 <Form.Label>Room Name</Form.Label>
                 <Form.Control placeholder="Enter a room name" />
                 <Form.Text className="text-muted">
