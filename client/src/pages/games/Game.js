@@ -78,4 +78,4 @@ class Player{
 
 }
 
-export default Game, voting;
+export default Game;
