@@ -1,12 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './home.css';
 import About from '../about/about';
 import Arrow from '../../components/Arrow/Arrow';
 import {Form, Button} from 'react-bootstrap';
 import { Link } from "react-scroll";
+import io from 'socket.io-client'
+const socket = io('http://localhost:8000/');
 
-export default class Home extends React.Component{
+
+
+
+ class Home extends Component{
+   constructor(props){
+     super(props);
+     this.state = {
+
+     }
+   }
+
+
+
+
+
+
+
+
     render(){
+      const {list} = this.state;
         return(
             <>
             <div id="home">
@@ -23,3 +43,5 @@ export default class Home extends React.Component{
         )
     }
 }
+
+export default Home;

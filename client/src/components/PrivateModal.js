@@ -1,10 +1,37 @@
 import React from 'react';
 import { Modal, Button, Form, Nav } from 'react-bootstrap';
 
+import io from 'socket.io-client'
+
+
 export class PrivateModal extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      roomcode: '0000',
+      name: '',
+    }
+
+    this.socket = io('http://localhost:8000/');
+
+  }
+
+    handlesubmit(e){
+      this.socket.emit('create-private-room');
+    }
+
+
+
+
+
+
+
+
+
     render() {
       return (
-        <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered
+        socket={this.socket}>
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">Create a Private Room</Modal.Title>
           </Modal.Header>
@@ -19,9 +46,10 @@ export class PrivateModal extends React.Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
-            <Nav.Link href="/Game"><Button>Submit</Button></Nav.Link>
+            <Button onClick={this.handlesubmit}>Submit</Button>
           </Modal.Footer>
         </Modal>
       );
     }
+
 }

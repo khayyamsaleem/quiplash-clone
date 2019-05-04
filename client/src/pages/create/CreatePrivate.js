@@ -1,9 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './create.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import Header from "../../components/header";
 
-const CreatePrivate = () => {
+import io from 'socket.io-client'
+
+
+const socket = io('http://localhost:8000/');
+
+class CreatePrivate extends Component = () => {
+  constructor(props){
+    super(props);
+    this.state = {
+      message: "yay";
+    }
+  }
+
+  
+
+
+
+
   return(
 <>
   <Header>
