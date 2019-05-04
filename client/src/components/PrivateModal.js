@@ -39,9 +39,8 @@ export class PrivateModal extends React.Component {
             <Form style={{width: '100%'}}>
                 <Form.Label>Room Name</Form.Label>
                 <Form.Control placeholder="Enter a room name" />
-                <Form.Text className="text-muted">
-                    Make your room fun and original!
-                </Form.Text>
+                <Form.Label>User Name</Form.Label>
+                <Form.Control placeholder="Enter your game name" />
             </Form>
           </Modal.Body>
           <Modal.Footer>
