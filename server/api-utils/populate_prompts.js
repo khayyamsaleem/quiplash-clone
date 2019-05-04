@@ -9,7 +9,7 @@ const env = (process.env.NODE_ENV).toUpperCase();
 
 const dbURL = process.env['DB_URL_' + env];
 
-mongoose.connect(dbURL, {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:8889/quiptest", {useNewUrlParser: true});
 
 /* Open and read prompts from file */
 function readData() {

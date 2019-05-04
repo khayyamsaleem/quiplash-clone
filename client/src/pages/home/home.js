@@ -14,6 +14,7 @@ export default class Home extends React.Component{
                 <h4 id="byline">the online game of witty lines</h4><br></br>
                 <Form>
                     <Form.Control placeholder="Enter room code"/><br></br>
+                    <Form.Control placeholder="Enter your game name" /><br></br>
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>
             </div>
