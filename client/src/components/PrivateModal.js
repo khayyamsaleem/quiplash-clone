@@ -9,7 +9,8 @@ export class PrivateModal extends React.Component {
     this.state = {
       roomCode: 0,
       roomName: "",
-      playerName: ""
+      playerName: "",
+      readyToSubmit: false
     };
 
     let socket=io.connect('http://localhost:8080');
@@ -19,7 +20,7 @@ export class PrivateModal extends React.Component {
       })
     })
 
-    // socket.disconnect();
+    socket.disconnect();
     
   }
   //STORES ROOM NAME AND PLAYER NAME IN STATE
@@ -30,14 +31,13 @@ export class PrivateModal extends React.Component {
     this.setState({playerName: e.target.value});
   }
   submitForm () {
-    console.log("ROOM NAME: " + this.state.roomName);
-    console.log("PLAYER NAME: " + this.state.playerName);
+    this.setState({readyToSubmit: true});
   }
   
   render() {
     return (
-      this.state.roomCode !== 0 
-      ? <WaitingPrivate roomCode={this.state.roomCode} socket={this.socket} roomName = {this.state.roomName}/>
+      this.state.readyToSubmit
+      ? <WaitingPrivate roomCode={this.state.roomCode} socket={this.socket} roomName = {this.state.roomName} playerName = {this.state.playerName}/>
       : <Modal {...this.props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">Create a Private Room</Modal.Title>
