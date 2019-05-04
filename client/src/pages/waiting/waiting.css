@@ -1,0 +1,8 @@
+#waitingPrivate{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-left: 10%;
+    padding-right:10%;
+}
