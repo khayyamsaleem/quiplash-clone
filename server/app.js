@@ -14,7 +14,7 @@ const promptRoutes = require('./routes/prompts');
 const port = process.env['PORT_' + env];
 
 //connect to mongo db
-mongoose.connect(dbURL, {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:8888/quip", {useNewUrlParser: true});
 
 //middlewares
 app.use(cors({

@@ -6,12 +6,15 @@ import { PublicModal } from './PublicModal';
 import { PrivateModal } from './PrivateModal';
 import { AddModal } from './AddModal';
 
+// const socket = io();
+// socket.on("connect", () => socket.emit("connectEvent", "message"));
+
 export default class Header extends React.Component{
   constructor(...args) {
     super(...args);
     this.state = { publicModalShow: false, privateModalShow: false, addModalShow: false };
   }
-
+  
   render(){
     let publicModalClose = () => this.setState({ publicModalShow: false });
     let privateModalClose = () => this.setState({ privateModalShow: false });
@@ -25,8 +28,8 @@ export default class Header extends React.Component{
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" style={{ float: 'right'}}>
             <Nav>
-              <Nav.Link href="#" style={{color: 'white'}}><Button style={{backgroundColor: '#66BB6A'}} onClick={() => this.setState({privateModalShow: true})}>Create a Private Room</Button></Nav.Link>
-              <Nav.Link href="#" style={{color: 'white'}}><Button style={{backgroundColor: '#26A69A'}} onClick={() => this.setState({ publicModalShow: true })}>Create a Public Room</Button></Nav.Link>
+              <Nav.Link href="#" style={{color: 'white'}}><Button style={{backgroundColor: '#66BB6A'}} onClick={() => this.setState({privateModalShow: true})} id="public">Create a Private Room</Button></Nav.Link>
+              <Nav.Link href="#" style={{color: 'white'}}><Button style={{backgroundColor: '#26A69A'}} onClick={() => this.setState({ publicModalShow: true })} id="private">Create a Public Room</Button></Nav.Link>
               <Nav.Link href="/JoinRoom" style={{color: 'white'}}><Button style={{backgroundColor: '#BA68C8'}}>Join a Room</Button></Nav.Link>
               <Nav.Link href="#" style={{color: 'white'}}><Button style={{backgroundColor: '#EF5350'}} onClick={() => this.setState({addModalShow: true})}>Add a Prompt</Button></Nav.Link>
             </Nav>
