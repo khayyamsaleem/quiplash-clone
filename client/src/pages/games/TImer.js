@@ -26,6 +26,8 @@ const timer = () => {
 	)
 }
 
+export default timer;
+
 // notes: https://robdodson.me/building-a-countdown-timer-with-socket-dot-io/
 
 // var countdown = 90000;
