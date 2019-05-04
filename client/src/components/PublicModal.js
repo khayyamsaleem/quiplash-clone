@@ -14,8 +14,8 @@ export class PublicModal extends React.Component {
             <Form style={{width: '100%'}}>
                 <Form.Label>Room Name</Form.Label>
                 <Form.Control placeholder="Enter a room name" />
-                <Form.Label>User Name</Form.Label>
-                <Form.Control placeholder="Enter your game name" />
+                <Form.Label>Player Name</Form.Label>
+                <Form.Control placeholder="Enter your player name" />
             </Form>
           </Modal.Body>
           <Modal.Footer>
