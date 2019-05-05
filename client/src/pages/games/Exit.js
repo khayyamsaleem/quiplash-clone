@@ -15,9 +15,11 @@ const ExitPages = () => {
 
 				<Row>
 					<Col>
+						<span class="close">&times;</span>
 						<p> play with the same people </p>
 					</Col>
 					<Col>
+						<span class="close">&times;</span>
 						<p> exit </p>
 					</Col>
 				</Row>
