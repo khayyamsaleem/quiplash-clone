@@ -5,7 +5,6 @@ import Header from "../../components/header";
 
 const ExitPages = () => {
 	return (
-		// 
 
 		<><Header>
 
