@@ -47,8 +47,8 @@ class Scoreboard{
     var swapped;
       do {
         swapped = false;
-        for(var i = 0; i < this.playerScores.length; i++) {
-          if(this.playerScores[i] && this.playerScores[i + 1] && this.playerScores[i].score > this.playerScores[i + 1].score) {
+        for (var i = 0; i < this.playerScores.length; i++) {
+          if (this.playerScores[i] && this.playerScores[i + 1] && this.playerScores[i].score > this.playerScores[i + 1].score) {
             var temp = new Player();
             temp = this.playerScores[i];
             this.playerScores[i] = this.playerScores[i+1];
