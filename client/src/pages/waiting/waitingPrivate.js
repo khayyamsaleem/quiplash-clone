@@ -2,7 +2,7 @@ import React from 'react';
 import './waiting.css';
 import {Button} from 'react-bootstrap';
 import { withRouter} from 'react-router-dom'
-import io from 'socket.io-client'
+import socket from '../../utils/api'
 
 class WaitingPrivate extends React.Component{
   constructor(props) {
@@ -11,20 +11,15 @@ class WaitingPrivate extends React.Component{
     this.state = {
       players: []
     }
-    this.socket = io('/')
-    this.socket.on('connect', () => {
-      console.log('listening to socket')
-      this.socket.on('join-private-room', (data) => {
-        this.someoneJoined(data)
-      })
+    socket.on('join-private-room', (data) => {
+      this.someoneJoined(data)
     })
   }
 
   someoneJoined(data){
     if (data.msg === 'success'){
-      const { players } = this.state
       this.setState({
-        players: [...players, data.name]
+        players: data.names
       })
     } else {
       console.log("Someone failed to join")
