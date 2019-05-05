@@ -40,13 +40,16 @@ export default class CreatePrivate extends React.Component{
       this.state.readyToSubmit 
       ? <WaitingPrivate roomCode={this.state.roomCode} socket={this.socket} roomName = {this.state.roomName} playerName = {this.state.playerName}/>
       : <>
-        <Form style={{width: '100%'}}>
-          <Form.Label>Room Name</Form.Label>
-          <Form.Control placeholder="Enter a room name" onChange={this.handleRoomChange.bind(this)}/>
-          <Form.Label>Player Name</Form.Label>
-          <Form.Control placeholder="Enter your player name" onChange={this.handleNameChange.bind(this)}/>
-        </Form>
-        <Button onClick={this.submitForm.bind(this)}>Submit</Button>
+        <div className="create">
+          <h1>Create a Private Room</h1>
+          <Form style={{width: '100%'}}>
+            <Form.Label>Room Name</Form.Label>
+            <Form.Control placeholder="Enter a room name" onChange={this.handleRoomChange.bind(this)}/>
+            <Form.Label>Player Name</Form.Label>
+            <Form.Control placeholder="Enter your player name" onChange={this.handleNameChange.bind(this)}/>
+          </Form>
+          <Button onClick={this.submitForm.bind(this)}>Submit</Button>
+        </div>
         </>
     );
   }

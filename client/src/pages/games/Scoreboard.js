@@ -1,5 +1,5 @@
 import React from 'react';
-import './create.css';
+import './game.css';
 import { Form, Row, Col } from 'react-bootstrap';
 import Header from "../../components/header";
 
