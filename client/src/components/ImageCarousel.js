@@ -1,5 +1,5 @@
 import React from 'react';
-import {Carousel} from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 export default class ImageCarousel extends React.Component {
     constructor(props, context) {
@@ -10,17 +10,17 @@ export default class ImageCarousel extends React.Component {
         direction: null,
       };
     }
-  
+
     handleSelect(selectedIndex, e) {
       this.setState({
         index: selectedIndex,
         direction: e.direction,
       });
     }
-  
+
     render() {
       const { index, direction } = this.state;
-  
+
       return (
         <Carousel activeIndex={index} direction={direction} onSelect={this.handleSelect} style={{width:"400px", height:"300px"}}>
           <Carousel.Item>

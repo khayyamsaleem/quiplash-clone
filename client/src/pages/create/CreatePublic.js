@@ -3,7 +3,7 @@ import './create.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import Header from "../../components/header";
 
-const CreateRoom = () => {
+const CreatePublic = () => {
   return(
 <>
   <div className="createPublic">
@@ -66,4 +66,4 @@ const CreateRoom = () => {
 
 }
 
-export default CreateRoom;
+export default CreatePublic;
