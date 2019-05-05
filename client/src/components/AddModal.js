@@ -10,6 +10,7 @@ export class AddModal extends React.Component{
     super(props);
     this.state = {
       message: '',
+      clean: true,
     }
 
 
@@ -17,8 +18,13 @@ export class AddModal extends React.Component{
 
 
     textChange(e) {
-      let message = this.state.message;
-      console.log(message);
+      this.setState({ message : e.target.value })
+      let filter = new Filter();
+      let prompt = this.state.message;
+      if(filter.isProfane(prompt)){
+        console.log("There are curse words in the prompt");
+        this.setState({clean: false});
+      }
 
     }
 
@@ -28,6 +34,11 @@ export class AddModal extends React.Component{
       let filter = new Filter();
       prompt = filter.clean(prompt);
       console.log(prompt);
+
+      if(this.state.clean){
+
+        //send to backend
+      }
 
 
     }
@@ -54,12 +65,13 @@ export class AddModal extends React.Component{
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form style={{width: '100%'}} onChange = {e => this.setState({ message : e.target.value })}>
+            <Form style={{width: '100%'}} onChange = {this.textChange.bind(this)}>
                 <Form.Label>Wanna see your own prompts featured in a game? Add a prompt here,
             and we'll vet it and add it to the game! You never know, maybe you'll
             even see it in your own game!</Form.Label>
                 <Form.Control placeholder="Fill prompt here..." />
                 <Form.Text className="text-muted">
+                  <h3> {this.state.clean ? ' ': 'Bad words in prompt will not be saved'} </h3>
                     Make your prompt fun and original!
                 </Form.Text>
             </Form>
@@ -67,6 +79,7 @@ export class AddModal extends React.Component{
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
             <Button onClick={this.handleSubmit.bind(this)}>Submit</Button>
+
           </Modal.Footer>
         </Modal>
       </>
