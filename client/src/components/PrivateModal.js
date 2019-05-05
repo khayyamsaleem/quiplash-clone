@@ -17,8 +17,11 @@ export class PrivateModal extends React.Component {
   }
 
     handlesubmit(e){
+      e.preventDefault()
       this.socket.emit('create-private-room');
     }
+
+
 
 
 
@@ -45,7 +48,7 @@ export class PrivateModal extends React.Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
-            <Button onClick={this.handlesubmit}>Submit</Button>
+            <Button onClick={this.handlesubmit.bind(this)}>Submit</Button>
           </Modal.Footer>
         </Modal>
       );
