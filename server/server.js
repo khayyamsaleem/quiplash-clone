@@ -18,7 +18,7 @@ const promptRoutes = require('./routes/prompts');
 const port = process.env['PORT_' + env] || 8080;
 
 //connect to mongo db
-mongoose.connect(dbURL, {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:8888/quip", {useNewUrlParser: true});
 
 
 //middlewares
@@ -27,7 +27,6 @@ mongoose.connect(dbURL, {useNewUrlParser: true});
 
 //socket functions
 ioUtil(io);
-
 
 //anything else 
 
