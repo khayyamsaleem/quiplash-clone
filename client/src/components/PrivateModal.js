@@ -12,13 +12,14 @@ export class PrivateModal extends React.Component {
       name: '',
     }
 
-    this.socket = io('http://localhost:8000/');
+
 
   }
 
     handlesubmit(e){
       e.preventDefault()
       this.socket.emit('create-private-room');
+      console.log('this is happening');
     }
 
 

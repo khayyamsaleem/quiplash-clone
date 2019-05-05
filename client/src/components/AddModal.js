@@ -24,6 +24,8 @@ export class AddModal extends React.Component{
       if(filter.isProfane(prompt)){
         console.log("There are curse words in the prompt");
         this.setState({clean: false});
+      }else{
+        this.setState({clean: true});
       }
 
     }
@@ -71,7 +73,7 @@ export class AddModal extends React.Component{
             even see it in your own game!</Form.Label>
                 <Form.Control placeholder="Fill prompt here..." />
                 <Form.Text className="text-muted">
-                  <h3> {this.state.clean ? ' ': 'Bad words in prompt will not be saved'} </h3>
+                  <h3> {this.state.clean ? ' ': 'Bad words in prompt may not be saved'} </h3>
                     Make your prompt fun and original!
                 </Form.Text>
             </Form>

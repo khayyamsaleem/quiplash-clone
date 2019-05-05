@@ -4,6 +4,10 @@ import { Nav, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import Header from "../../components/header";
 
 const Game = () => {
+
+
+
+
   return(
 <>
   <div className="create">
