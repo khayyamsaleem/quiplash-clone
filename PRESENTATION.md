@@ -25,15 +25,9 @@
 
 ## Team Roles
 
-- 
-
-
-Team members
-Who are you?
-
-Name
-Year
-Any special interests
-What prior experience do you have that is relevant to the project?
-What were the roles in the team, and how did you divide the labor?
-Did you share the Scrum Master, Product Owner, and Developer roles equally, or were there specific individuals who assumed certain roles?
+- **Product Owner and Scrum Master**
+   - Everyone had a chance to be the product owner and scrum master once.
+- **Developer**
+   - Everyone was a developer during every sprint.
+   - We split up the labor based upon who felt more comofortable working on certain features.
+     - If someone had more knowledge about one subject they would focus on the work involving that.
