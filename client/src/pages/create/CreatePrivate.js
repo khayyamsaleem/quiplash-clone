@@ -48,6 +48,7 @@ export default class CreatePrivate extends React.Component{
             <Form.Label>Player Name</Form.Label>
             <Form.Control placeholder="Enter your player name" onChange={this.handleNameChange.bind(this)}/>
           </Form>
+          <br></br>
           <Button onClick={this.submitForm.bind(this)}>Submit</Button>
         </div>
         </>
