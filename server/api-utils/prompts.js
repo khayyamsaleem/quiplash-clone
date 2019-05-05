@@ -47,6 +47,8 @@ function getPrompt(req, res) {
 	});
 }
 
+
+
 //add function to return N random prompts at a time
 function getRandom(n) {
 	Prompt.findRandom({}, {}, {limit: n}, function(err, results) {
@@ -58,6 +60,8 @@ function getRandom(n) {
 	});
 
 }
+
+
 
 getRandom(4);
 

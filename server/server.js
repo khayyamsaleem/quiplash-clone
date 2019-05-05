@@ -29,7 +29,7 @@ mongoose.connect(dbURL, {useNewUrlParser: true});
 ioUtil(io);
 
 
-//anything else 
+//anything else
 
 //TODO: add index file in routes
 
@@ -37,7 +37,9 @@ app.get('*', (req, res) => {
     res.status(400).json({ message: 'BAD REQUEST' });
 });
 
-server.listen(port, () => console.log(`server running on port ${port}!`)); 
+
+
+server.listen(port, () => console.log(`server running on port ${port}!`));
 
 //for testing
 module.exports = server;
