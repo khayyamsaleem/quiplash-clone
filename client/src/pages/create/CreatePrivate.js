@@ -1,27 +1,17 @@
 import React from 'react';
 import {Form, Button} from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import io from 'socket.io-client';
 import WaitingPrivate from './../waiting/waitingPrivate';
 import './create.css';
 
-export default class CreatePrivate extends React.Component{
+class CreatePrivate extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      roomCode: 0,
       roomName: "",
       playerName: "",
-      readyToSubmit: false
     };
-
-    let socket=io.connect('http://localhost:8080');
-    socket.on('connection',() => {
-      socket.emit('create-private-room', (message) => {
-        this.setState({roomCode: message});
-      })
-    })
-
-    socket.disconnect();
     
   }
   //STORES ROOM NAME AND PLAYER NAME IN STATE
@@ -32,14 +22,34 @@ export default class CreatePrivate extends React.Component{
     this.setState({playerName: e.target.value});
   }
   submitForm () {
-    this.setState({readyToSubmit: true});
+    const { roomName, playerName } = this.state
+    const socket = io("/")
+    socket.on('connect', () => {
+      socket.emit('create-private-room', {
+        playerName,
+        roomName
+      })
+      console.log("sent event")
+      socket.on('create-private-room', (roomCode) => {
+        console.log("ROOM CODE", roomCode)
+        this.props.history.push({
+          pathname: '/waiting/private',
+          state: {
+            playerName,
+            roomName,
+            roomCode
+          }
+        })
+      })
+    })
   }
 
   render(){
     return(
-      this.state.readyToSubmit 
-      ? <WaitingPrivate roomCode={this.state.roomCode} socket={this.socket} roomName = {this.state.roomName} playerName = {this.state.playerName}/>
-      : <>
+      // this.state.readyToSubmit 
+      // ? <WaitingPrivate roomCode={this.state.roomCode} socket={this.socket} roomName = {this.state.roomName} playerName = {this.state.playerName}/>
+      // : <>
+      <>
         <div className="create">
           <h1>Create a Private Room</h1>
           <Form style={{width: '100%'}}>
@@ -55,3 +65,5 @@ export default class CreatePrivate extends React.Component{
     );
   }
 }
+
+export default withRouter(CreatePrivate)

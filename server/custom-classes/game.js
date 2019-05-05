@@ -62,10 +62,4 @@ class Game {
 		return Object.keys(this.players).length;	
 	}
 }
-
-
-const game = new Game('1234');
-game.addPlayer('abcd');
-game.addVote('abcd');
-
 module.exports = Game;

@@ -13,26 +13,18 @@ module.exports = function(io) {
 		console.log(`Client ${socket.id} just connected`);
 		console.log('connected');
 
-		//socket functions
-		socket.on('test', function(msg, cb) {
-			cb = cb || function() {};
-
-			socket.emit('test', 'received');
-			cb(null, 'Done');
-		});
-
 		//create private room and recieve a code
-		socket.on('create-private-room', function(msg, cb) {
-			cb = cb || function() {};
-	
+		socket.on('create-private-room', function(msg) {
+			console.log(msg)
 			//generate random number, can abstract this out so upper and lower bound are passed or are in env file
 			const rand = Math.floor((Math.random() * 8000) + 7000);
 
 			const game = new Game(rand);
-			currentPrivateRooms[rand+""] = game;
+			currentPrivateRooms[rand] = game;
 
-			socket.emit('create-private-room', rand);
-			cb(null, 'Done');
+			// socket.emit('private-room-created', rand);
+
+			io.to(socket.id).emit('create-private-room', rand)
 		});
 
 		//TODO: verify code to join private room
@@ -42,11 +34,11 @@ module.exports = function(io) {
 
 		    // msg.code is room code
 			// msg.name is players name
-			if (msg.code !== undefined) {
+			if (msg.code) {
 					if (currentPrivateRooms.hasOwnProperty(msg.code)) {
 						// if game exists add user
 						if ((currentPrivateRooms[msg.code+""]).addPlayer(socket.id, msg.name)){
-							socket.emit('join-private-room', { msg: 'true', name:'' });
+							socket.emit('join-private-room', { msg: 'success', name:msg.name });
 						} else {
 							socket.emit('join-private-room', { msg: 'room full', name:''});
 						}
