@@ -1,30 +1,46 @@
 import React from 'react';
 import './waiting.css';
 import {Button} from 'react-bootstrap';
-import { withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import socket from '../../utils/api'
 
 class WaitingPrivate extends React.Component{
   constructor(props) {
     super(props);
-    this.someoneJoined.bind(this);
+    // this.someoneJoined.bind(this);
     this.state = {
       players: []
     }
     socket.on('join-private-room', (data) => {
-      this.someoneJoined(data)
+      console.log("SOMEONE CONNECTED TO JOIN PRIVATE ROOM VIA SOCKET")
+      // console.log("THE DATA...", data)
+      // this.someoneJoined(data)
+      console.log("THE DATA...IN FUNCTION...", data)
+      if (data.msg === 'success'){
+        this.setState({
+          players: data.names
+        })
+        console.log("CURRENT PLAYERS: ", this.state.players);
+      } else {
+        console.log("Someone failed to join")
+      }
     })
   }
 
-  someoneJoined(data){
-    if (data.msg === 'success'){
-      this.setState({
-        players: data.names
-      })
-    } else {
-      console.log("Someone failed to join")
-    }
-  }
+  // componentWillMount(){
+  //   this.setState({players:[]})
+  // }
+  // someoneJoined(data){
+  //   console.log("THE DATA...IN FUNCTION...", data)
+  //   if (data.msg === 'success'){
+  //     this.setState({
+  //       players: data.names
+  //     })
+  //     console.log("CURRENT PLAYERS: ", this.state.players);
+  //   } else {
+  //     console.log("Someone failed to join")
+  //   }
+  // }
 
   render(){
     const { players } = this.state
