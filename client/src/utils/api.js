@@ -31,4 +31,11 @@ export const getPlayers = (roomCode, cb = () => {}) => {
     })
 }
 
+export const subscribeToJoins = (cb = () => {}) => {
+    socket.on('join-private-room', ({players}) => {
+        console.log("EVENT HEARD")
+        cb(null,players)
+    })
+}
+
 export default socket

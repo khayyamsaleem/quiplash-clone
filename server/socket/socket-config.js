@@ -33,7 +33,7 @@ module.exports = function(io) {
       game.addPlayer(socket.id, msg.playerName);
       currentPrivateRooms[rand] = game;
 
-      io.to(socket.id).emit("create-private-room", {
+      socket.emit("create-private-room", {
         roomCode: rand,
         roomName: game.roomName
       });
@@ -51,17 +51,22 @@ module.exports = function(io) {
         if (currentPrivateRooms.hasOwnProperty(roomCode)) {
           // if game exists add user
           if (currentPrivateRooms[roomCode].addPlayer(socket.id, msg.name)) {
+            socket.broadcast.emit("join-private-room", {
+              msg: "success",
+              players: Object.values(currentPrivateRooms[roomCode].players).map(p => p.name),
+              roomName: currentPrivateRooms[roomCode].roomName
+            });
             socket.emit("join-private-room", {
               msg: "success",
               players: Object.values(currentPrivateRooms[roomCode].players).map(p => p.name),
               roomName: currentPrivateRooms[roomCode].roomName
             });
           } else {
-            io.to(socket.id).emit("join-private-room", { msg: "room full" });
+            socket.emit("join-private-room", { msg: "room full" });
           }
         }
       } else {
-        io.to(socket.id).emit("join-private-room", {
+        socket.emit("join-private-room", {
           msg: "code invalid",
         });
       }
@@ -71,10 +76,12 @@ module.exports = function(io) {
 
     socket.on("get-players", (msg, cb = () => {}) => {
       const { roomCode } = msg;
-      const names = Object.values(currentPrivateRooms[roomCode].players).map(p => p.name)
-      io.to(socket.id).emit("get-players", {
-        players: names
-      })
+      if (currentPrivateRooms[roomCode]){
+        const names = Object.values(currentPrivateRooms[roomCode].players).map(p => p.name)
+        socket.emit("get-players", {
+          players: names
+        })
+      }
     })
 
     socket.on("start-game", async function(msg, cb) {
@@ -148,7 +155,7 @@ module.exports = function(io) {
                 currPlayers[i]
               ].getPrompts();
               console.log("SENDING PROMPTS", qs);
-              io.to(currPlayers[i]).emit("start-game", {
+              io.to(`${currPlayers[i]}`).emit("start-game", {
                 start: "true",
                 prompts: qs
               });

@@ -2,7 +2,7 @@ import React from 'react';
 import './waiting.css';
 import {Button} from 'react-bootstrap';
 import {withRouter} from 'react-router-dom'
-import socket, { getPlayers } from '../../utils/api'
+import socket, { getPlayers, subscribeToJoins } from '../../utils/api'
 
 class WaitingPrivate extends React.Component{
   constructor(props) {
@@ -11,9 +11,14 @@ class WaitingPrivate extends React.Component{
       players: []
     }
     this.receivedPlayers.bind(this)
+    subscribeToJoins((err, players) => {
+      if (!err) {
+        this.receivedPlayers(players)
+      }
+    })
   }
 
-  receivedPlayers(players = this.state.players){
+  receivedPlayers(players){
     this.setState({players})
   }
 
@@ -22,13 +27,6 @@ class WaitingPrivate extends React.Component{
     const { roomCode } = this.props
     getPlayers(roomCode, (players) => {
       this.receivedPlayers(players)
-    })
-    socket.on('join-private-room', ({ msg, players }) => {
-      console.log(msg)
-      console.log(players)
-      if (msg === 'success') {
-        this.receivedPlayers(players)
-      }
     })
   }
 
