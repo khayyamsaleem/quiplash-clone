@@ -74,7 +74,7 @@ describe('Socket tests', function() {
 
 	});
 
-	it('should not join game unless minimum of 3 players', function(done) {
+	it('should not start game unless minimum of 3 players', function(done) {
 		const client = io.connect(url, options) 
 
 		client.once('connect', function() {
@@ -90,6 +90,61 @@ describe('Socket tests', function() {
 	
 	});
 
+	it('should return array to clients when game starts', function(done) {
+		const client = io.connect(url, options);
+
+		client.on('connect', function() {
+			client.on('join-private-room', function(msg) {
+				(msg.msg).should.equal('true');
+//				client2.disconnect();
+				//done();
+			});
+
+			client.emit('join-private-room', { code: trand, name: 'client' });		
+
+			const client2 = io.connect(url, options);
+			const client3 = io.connect(url, options);
+
+			client2.on('connect', function() {
+					client2.on('join-private-room', function(msg) {
+						(msg.msg).should.equal('true');
+//						client2.disconnect();
+						//done();
+					});
+					client2.on('start-game', function(msg) {
+						(msg.prompts).should.be.an('array');
+						//client.disconnect();
+						//done();
+					});
+				client2.emit('join-private-room', { code: trand, name: 'client2' });	
+			});
+	
+			client3.on('connect', function() {
+					client3.on('join-private-room', function(msg) {
+						(msg.msg).should.equal('true');
+//						client3.disconnect();
+//						done();
+					});
+					client3.on('start-game', function(msg) {
+						(msg.prompts).should.be.an('array');
+//						client.disconnect();
+//						done();
+					});
+				client3.emit('join-private-room', { code: trand, name: 'client3' });
+				client.emit('start-game', { code: trand });
+			});
+
+			client.on('start-game', function(msg) {
+				(msg.prompts).should.be.an('array');
+				client.disconnect();
+				done();
+			});
+
+//			client.emit('start-game', { code: trand });
+
+		});
+	
+	});
 
 	it('should remove code when game is done', function(done) {
 		const client = io.connect(url, options);
@@ -125,5 +180,5 @@ describe('Socket tests', function() {
 			client.emit('join-private-room', { code: trand, name:'' });
 		});
 
-	});
+	}); 
 });
