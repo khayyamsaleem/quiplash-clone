@@ -44,15 +44,22 @@ class Game {
 		this.code = code;
 		this.players = {};
 		this.max = max || 8; //for now 8 is default, can change later
+		this.roomName = ''
 	}
 
 	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
+<<<<<<< HEAD
 			if (!this.players[socketId]) {
 				const player = new Player(this.code, socketId, name);
 				
 				this.players[socketId] = player;
 				console.log((this.players[socketId]));
+=======
+			const player = new Player(this.code, socketId, name);
+			
+			this.players[socketId] = player;
+>>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 
 				return true; // added successfully
 			} else {
@@ -68,17 +75,10 @@ class Game {
 		const point = 1;  //abstract this to env variable or pass player: score
 
 		(this.players[socketId]).updateScore(point);
-		console.log((this.players[socketId]));
 	}
 
 	getNumberofPlayers() {
 		return Object.keys(this.players).length;	
 	}
 }
-
-
-const game = new Game('1234');
-game.addPlayer('abcd');
-game.addVote('abcd');
-
 module.exports = Game;
