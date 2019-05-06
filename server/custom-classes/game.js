@@ -48,12 +48,16 @@ class Game {
 
 	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
-			const player = new Player(this.code, socketId, name);
-			
-			this.players[socketId] = player;
-			console.log((this.players[socketId]));
+			if (!this.players[socketId]) {
+				const player = new Player(this.code, socketId, name);
+				
+				this.players[socketId] = player;
+				console.log((this.players[socketId]));
 
-			return true; // added successfully
+				return true; // added successfully
+			} else {
+				return false; //player already exists
+			}
 		} else {
 			return false; //room is full
 		}
