@@ -82,9 +82,9 @@ function getPairs(players, round) {
 getPrompts(4, 5);
 console.log(getPairs(['p1', 'p2', 'p3'], 3)); */
 
-console.log(getPairs(['p1', 'p2', 'p3'], 1)); 
-console.log(getPairs(['p1', 'p2', 'p3'], 2)); 
-console.log(getPairs(['p1', 'p2', 'p3'], 3)); 
+// console.log(getPairs(['p1', 'p2', 'p3'], 1)); 
+// console.log(getPairs(['p1', 'p2', 'p3'], 2)); 
+// console.log(getPairs(['p1', 'p2', 'p3'], 3)); 
 
 //getRandomPrompts(5);
 //console.log(getRandomPrompts(5));
