@@ -2,21 +2,30 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "NODE_ENV=dev node app.js",
     "sock": "export NODE_ENV=dev && node server.js",
     "sockTest": "export NODE_ENV=test && mocha --timeout 15000 tests/socket-tests.js",
+=======
+    "start": "cross-env NODE_ENV=dev node server.js",
+    "sockTest": "cross-env NODE_ENV=test mocha --timeout 15000 tests/socket-tests.js",
+>>>>>>> master
     "start:dev": "nodemon",
-    "test": "NODE_ENV=test mocha tests/prompt-tests.js",
+    "test": "cross-env NODE_ENV=test mocha tests/prompt-tests.js",
     "pretest": "echo 'about to run tests'",
     "posttest": "echo 'test completed'",
+<<<<<<< HEAD
     "updateDB": "export NODE_ENV=dev && node api-utils/populate_prompts.js"
+=======
+    "updateDB": "cross-env NODE_ENV=dev node api-utils/populate_prompts.js"
+>>>>>>> master
   },
   "author": "Rebecca Shi",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "cors": "^2.8.5",

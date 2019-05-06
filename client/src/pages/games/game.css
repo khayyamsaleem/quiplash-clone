@@ -1,8 +1,8 @@
 .create {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
+    /* justify-content: space-evenly;
+    flex-direction: row; */
     width: 100%;
     height: 100vh;
     text-align: center;
