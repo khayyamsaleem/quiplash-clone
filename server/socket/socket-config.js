@@ -39,7 +39,7 @@ module.exports = function (io) {
 				roomCode: rand,
 				roomName: game.roomName
 			})
-      		// cb(null, 'Done');
+      			cb(null, 'Done');
 		});
 
 		//TODO: verify code to join private room
@@ -60,11 +60,11 @@ module.exports = function (io) {
 				}
 			} else {
 				io.to(socket.id).emit('join-private-room', { msg: 'code invalid', name:''});
-
-			}
+			} 
 
 			cb(null, 'Done');
 		});
+
 
 		socket.on('start-game', async function(msg, cb) {
 			cb = cb || function() {};

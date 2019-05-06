@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Form, Button, Nav } from 'react-bootstrap';
 import axios from "axios";
+import io from 'socket.io-client'
 
 let Filter = require('bad-words');
 
@@ -13,7 +14,7 @@ export class AddModal extends React.Component{
       clean: true,
     }
 
-
+    this.socket = io('http://localhost:8000/');
 }
 
 
@@ -38,8 +39,8 @@ export class AddModal extends React.Component{
       console.log(prompt);
 
       if(this.state.clean){
+        this.socket.emit('add-prompt', {prompt: this.state.message});
 
-        //send to backend
       }
 
 
