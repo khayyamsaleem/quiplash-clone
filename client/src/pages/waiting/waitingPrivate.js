@@ -13,7 +13,6 @@ class WaitingPrivate extends React.Component{
     }
     socket.on('join-private-room', (data) => {
       console.log("SOMEONE CONNECTED TO JOIN PRIVATE ROOM VIA SOCKET")
-      // console.log("THE DATA...", data)
       // this.someoneJoined(data)
       console.log("THE DATA...IN FUNCTION...", data)
       if (data.msg === 'success'){
