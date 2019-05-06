@@ -1,7 +1,19 @@
 const Game = require('../custom-classes/game.js');
+const mongoose = require('mongoose');
+const Prompt = require('./../models/prompts');
+const config = require('./../config/default');
+
+
+require('dotenv').config();
+//const env = (process.env.NODE_ENV).toUpperCase();
+
+const dbURL = config.dbURL || process.env['DB_URL_' + env];
+
+mongoose.connect(dbURL, {useNewUrlParser: true});
 
 module.exports = function(io) {
-	
+
+
 	const currentPrivateRooms = {};
 	const min = 3;
 
@@ -24,13 +36,14 @@ module.exports = function(io) {
 		//create private room and recieve a code
 		socket.on('create-private-room', function(msg, cb) {
 			cb = cb || function() {};
-	
+
 			//generate random number, can abstract this out so upper and lower bound are passed or are in env file
 			const rand = Math.floor((Math.random() * 8000) + 7000);
 
 			const game = new Game(rand);
 			currentPrivateRooms[rand+""] = game;
 
+			console.log(game.code);
 			socket.emit('create-private-room', rand);
 			cb(null, 'Done');
 		});
@@ -60,7 +73,7 @@ module.exports = function(io) {
 
 		socket.on('start-game', function(msg, cb) {
 			cb = cb || function() {};
-			
+
 			// check that the minimum threshold is met
 			// msg.code is room code
 			if(currentPrivateRooms.hasOwnProperty(msg.code)) {
@@ -69,12 +82,12 @@ module.exports = function(io) {
 				console.log(`here is the number ${num}\n`);
 
 				if (num >= min) {
-					socket.emit('start-game', { start: 'true' }); 
+					socket.emit('start-game', { start: 'true' });
 				} else {
 					socket.emit('start-game', { start: 'false' });
 				}
 			} else {
-				socket.emit('start-game', { start: 'false' });	
+				socket.emit('start-game', { start: 'false' });
 			}
 
 			cb(null, 'Done');
@@ -83,7 +96,7 @@ module.exports = function(io) {
 		//end game and room code will be removed
 		socket.on('game-over', function(msg, cb) {
 			cb = cb || function() {};
-			
+
 			if (currentPrivateRooms[msg] !== undefined) {
 				currentPrivateRooms[msg] = undefined;
 				console.log(`Code is ${currentPrivateRooms[msg]}`);
@@ -95,15 +108,39 @@ module.exports = function(io) {
 
 		//TODO: return number of quips when game starts
 		//TODO: create a public room
-		//TODO; join a public room 
+		//TODO; join a public room
 
-		//on disconnect, 
+		//on disconnect,
 		socket.on('disconnect', () => {
 			currentPrivateRooms[socket.id+""] = undefined;
 			console.log(`Client ${socket.id} disconnected and key code is ${currentPrivateRooms[socket.id+""]}`);
 			delete currentPrivateRooms[socket.id+""];
 		});
+
+
+		socket.on('add-prompt', function(msg, cb) {
+			let prompt = msg.prompt;
+			console.log(prompt);
+
+			new Prompt({
+				question: prompt
+			}).save((err, promptt) => {
+	if(err) { /*failed to save, server error */
+		console.log("error")
+	} else { /* saved successfully */
+		console.log('success')
+	}
+});
+
+
+
+
+		});
+
+
 	});
+
+
 
 
 }

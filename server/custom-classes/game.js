@@ -40,7 +40,7 @@ class Game {
 	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
 			const player = new Player(this.code, socketId, name);
-			
+
 			this.players[socketId] = player;
 			console.log((this.players[socketId]));
 
@@ -59,7 +59,7 @@ class Game {
 	}
 
 	getNumberofPlayers() {
-		return Object.keys(this.players).length;	
+		return Object.keys(this.players).length;
 	}
 }
 
