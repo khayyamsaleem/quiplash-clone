@@ -72,7 +72,7 @@ class Game {
 	}
 
 	getNumberofPlayers() {
-		return Object.keys(this.players).length;	
+		return Object.keys(this.players).length;
 	}
 }
 module.exports = Game;

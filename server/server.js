@@ -37,7 +37,12 @@ app.use(bodyParser.json())
 //socket functions
 ioUtil(io);
 
+<<<<<<< HEAD
+
+//anything else
+=======
 //anything else 
+>>>>>>> master
 
 //TODO: add index file in routes
 
@@ -45,7 +50,11 @@ app.get('*', (req, res) => {
     res.status(400).json({ message: 'BAD REQUEST' });
 });
 
-server.listen(port, () => console.log(`server running on port ${port}!`)); 
+
+
+
+
+server.listen(port, () => console.log(`server running on port ${port}!`));
 
 //for testing
 module.exports = server;

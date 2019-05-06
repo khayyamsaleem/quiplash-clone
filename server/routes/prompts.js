@@ -9,6 +9,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
 
 router.post('/create-prompt', promptt.createPrompt);
+
 router.get('/get-prompt', promptt.getPrompt);
 
 module.exports = router;

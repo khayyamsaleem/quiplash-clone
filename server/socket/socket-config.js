@@ -1,4 +1,15 @@
 const Game = require('../custom-classes/game.js');
+const mongoose = require('mongoose');
+const Prompt = require('./../models/prompts');
+const config = require('./../config/default');
+
+require('dotenv').config();
+//const env = (process.env.NODE_ENV).toUpperCase();
+
+const dbURL = config.dbURL || process.env['DB_URL_' + env];
+
+mongoose.connect(dbURL, {useNewUrlParser: true});
+
 const util = require('../socket-utils/socket-utils.js');
 
 module.exports = function (io) {
@@ -144,15 +155,36 @@ module.exports = function (io) {
 
 		//TODO: return number of quips when game starts
 		//TODO: create a public room
-		//TODO; join a public room 
-		socket.on('create-prompt', function (msg) {
+		//TODO; join a public room
 
-		})
-
-		//on disconnect, 
+		//on disconnect,
 		socket.on('disconnect', () => {
 		});
+
+
+		socket.on('add-prompt', function(msg, cb) {
+			let prompt = msg.prompt;
+			console.log(prompt);
+
+			new Prompt({
+				question: prompt
+			}).save((err, promptt) => {
+	if(err) { /*failed to save, server error */
+		console.log("error")
+	} else { /* saved successfully */
+		console.log('success')
+	}
+});
+
+
+
+
+		});
+
+
 	});
+
+
 
 
 }
