@@ -1,7 +1,8 @@
-body{
+body {
     background: linear-gradient(to bottom, #ff6600 0%, #ffff99 100%);
 }
-#home{
+
+#home {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,10 +12,10 @@ body{
     text-align: center;
 }
 
-#title{
+#title {
     font-size: 5em;
 }
 
-Form{
+Form {
     width: 200px;
 }
