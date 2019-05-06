@@ -9,7 +9,7 @@ const env = (process.env.NODE_ENV).toUpperCase();
 
 const dbURL = process.env['DB_URL_' + env];
 
-mongoose.connect("mongodb://localhost:8889/quiptest", {useNewUrlParser: true});
+mongoose.connect(dbURL, {useNewUrlParser: true});
 
 /* Open and read prompts from file */
 function readData() {
@@ -25,8 +25,7 @@ function readData() {
 
 /*Adds each prompt to the database */
 function processData(data) {
-	let prompts = [];
-	doc = data.split(',');
+	let  doc = data.split(',');
 	console.log('Adding ' + doc.length + ' questions to the database');
 	doc.forEach((ques) => {
 		ques = ques.trim();
@@ -47,9 +46,8 @@ function processData(data) {
 }
 
 function done(num) {
-	console.log('Added ' + doc.length + ' questions to the database');
+	console.log(`Added ${num} questions to the database`);
 	return;
 }
 
 readData();
-

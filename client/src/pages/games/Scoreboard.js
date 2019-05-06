@@ -1,5 +1,5 @@
 import React from 'react';
-import './create.css';
+import './game.css';
 import { Alert, ListGroup } from 'react-bootstrap';
 import Header from "../../components/header";
 

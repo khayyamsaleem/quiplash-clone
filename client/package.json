@@ -7,6 +7,7 @@
     "jquery": "^1.9.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.3",
+    "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^2.1.8",
     "socket.io": "^2.2.0",

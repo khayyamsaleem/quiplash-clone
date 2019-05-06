@@ -1,5 +1,5 @@
 import React from 'react';
-import './create.css';
+import './game.css';
 import { Nav, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import Header from "../../components/header";
 
