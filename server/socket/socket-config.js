@@ -5,7 +5,7 @@ module.exports = function(io) {
 	
 	const currentPrivateRooms = {};
 	const min = 3;
-	const rounds = 3;
+	var rounds = 3;
 
 	// a room is of the form
 	// code: { Game }
@@ -33,7 +33,12 @@ module.exports = function(io) {
 			const game = new Game(rand);
 			currentPrivateRooms[rand+""] = game;
 
-			socket.emit('create-private-room', rand);
+			if ((currentPrivateRooms[rand]).addPlayer(socket.id, msg.name)){
+				io.to(socket.id).emit('create-private-room', rand );
+			} else { 
+				io.to(socket.id).emit('create-private-room', 0);
+			}
+//			socket.emit('create-private-room', rand);
 			cb(null, 'Done');
 		});
 
@@ -48,13 +53,13 @@ module.exports = function(io) {
 					if (currentPrivateRooms.hasOwnProperty(msg.code)) {
 						// if game exists add user
 						if ((currentPrivateRooms[msg.code+""]).addPlayer(socket.id, msg.name)){
-							socket.emit('join-private-room', { msg: 'true', name: msg.name });
+							io.to(socket.id).emit('join-private-room', { msg: 'true', name: msg.name });
 						} else {
-							socket.emit('join-private-room', { msg: 'room full', name:''});
+							io.to(socket.id).emit('join-private-room', { msg: 'room full', name:''});
 						}
 					}
 			} else {
-				socket.emit('join-private-room', { msg: 'code invalid', name:''});
+				io.to(socket.id).emit('join-private-room', { msg: 'code invalid', name:''});
 			}
 
 			cb(null, 'Done');
@@ -76,42 +81,55 @@ module.exports = function(io) {
 					const currPlayers = Object.keys(currentPrivateRooms[msg.code].players);
 
 					//get the number of prompts needed from the database
-					const prompts = util.getRandomPrompts(num * rounds);
-//					const results = util.getRandom(num*rounds);
+					//const results = util.getRandomPrompts(num * rounds);
+					const results = util.getRandom(num*rounds);
 //					const results = util.getPrompts(num, num*rounds);
 					console.log('Prompts ', results);
 
 					results.then(prompts => {
-					console.log(`IN RESULSTS ${prompts}`);
-					//create a loop for each round and get the pairs for that round
-					for (let i = 0; i < rounds; i++) {
-						const pairs = util.getPairs(currPlayers, i);
 
-						const limit = (rounds * num) + rounds;
-						let k = 0;
-						for (let j = rounds * num; j < limit; j++, k++) {
-							currentPrivateRooms[msg.code]['round_'+i] = {};
+							//
+							console.log("PROMPTS FROM RESULTS", prompts);
+							//create a loop for each round and get the pairs for that round
+							for (let i = 0; i < rounds; i++) {
+								const r = i + 1;
+								const pairs = util.getPairs(currPlayers, r);
+								console.log("PAIRS ", currPlayers, pairs);
 
-							//initialize pairs on this prompt with empty quotes
-							currentPrivateRooms[msg.code]['round_'+(i+1)][prompts[j]][pairs[k][0]] = '';
-							currentPrivateRooms[msg.code]['round_'+(i+1)][prompts[j]][pairs[k][1]] = '';
+								const limit = (i * num) + num;
+								const start = i* num;
+								//let k = 0;
+								console.log("NUM", num);
+								console.log("LIMIT and START", limit, start);
+								for (let j = start, k = 0; j < limit; j++, k++) {
+									currentPrivateRooms[msg.code]['round_'+r] = {};
+									currentPrivateRooms[msg.code]['round_'+r][prompts[j]] = {};
 
-							(currentPrivateRooms[msg.code].players[pairs[k][0]]).addPrompt(prompts[j]);
-							(currentPrivateRooms[msg.code].players[pairs[k][1]]).addPrompt(prompts[j]);
-						}
+									//initialize pairs on this prompt with empty quotes
+									
+									
+							//		console.log(`IN RESULTS HERE IS PROMPT ${prompts[j]} at index ${j} ${currentPrivateRooms[msg.code]['round_'+r][prompts[j]]}\n`);
+									currentPrivateRooms[msg.code]['round_'+r][prompts[j]][pairs[k][0]] = '';
+									currentPrivateRooms[msg.code]['round_'+r][prompts[j]][pairs[k][1]] = '';
 
-					}
-					
-					//assign each pair a prompt
-					//put those assignments in an object in Game
-					//also store the prompt in the player object, under prompts
+							//		console.log(`PLAYER `, (currentPrivateRooms[msg.code].players[pairs[k][0]]));
+									(currentPrivateRooms[msg.code].players[pairs[k][0]]).addPrompt(prompts[j]);
+									(currentPrivateRooms[msg.code].players[pairs[k][1]]).addPrompt(prompts[j]);
+								}
 
-					//for each player, emit their prompts to repesctive client ids
+							}
+							
+							//assign each pair a prompt
+							//put those assignments in an object in Game
+							//also store the prompt in the player object, under prompts
 
-					for (let i = 0; i < currPlayers.lenght; i++) {
-						const prompts = (currentPrivateRooms[msg.code].players[currPlayers[i]]).getPrompts();
-						io.to(currPlayers[i]).emit('start-game', { start: 'true', prompts: prompts});
-					}
+							//for each player, emit their prompts to repesctive client ids
+
+							for (let i = 0; i < currPlayers.lenght; i++) {
+								const qs = (currentPrivateRooms[msg.code].players[currPlayers[i]]).getPrompts();
+								console.log("SENFING PROMPTS", qs);
+								io.to(currPlayers[i]).emit('start-game', { start: 'true', prompts: qs});
+							}
 					});
 					//socket.emit('start-game', { start: 'true' }); 
 				} else {

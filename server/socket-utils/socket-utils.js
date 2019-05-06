@@ -10,9 +10,10 @@ const dbURL = config.dbURL || process.env['DB_URL_' + env];
 
 mongoose.connect(dbURL, {useNewUrlParser: true});
 const pairLength = 2;
+var skip = 5;
 
-function getPrompts(limit, rand) {
-	Prompt.find({}).limit(limit).skip(rand).exec(function(err, prompts) {
+async function getPrompts(limit, rand) {
+	Prompt.find({}).limit(limit).skip(rand).exec(async function(err, prompts) {
 		if (!err) {
 			console.log(`prompts ${prompts}\n`);
 			return prompts;
@@ -23,11 +24,11 @@ function getPrompts(limit, rand) {
 	});
 }
 
-function getRandomPrompts(n) {
-        Prompt.findRandom({}, {}, {limit: n}, async function(err, results) {
+async function getRandomPrompts(n) {
+      await Prompt.findRandom({}, {}, {limit: n}, async function(err, results) {
                 if(!err) {
-                        console.log(`results ${await results}\n`);
-			return results;
+                        console.log(`results ${results}\n`);
+			return await results;
                 } else {
                         console.log(`err is ${err}\n`);	
 			return null;
@@ -37,9 +38,13 @@ function getRandomPrompts(n) {
 
 async function getRandom(n) {
 	try {
-		const prompts = await Prompt.findRandom({}, {}, {limit: n}).exec();
+		const prompts = await Prompt.find({}).limit(n).skip(skip).exec();
 		console.log("IN GET RANDOM: ", prompts);
-		return prompts
+
+		skip =  (skip < 400) ? skip+n : 0 ;
+
+		return prompts.map(p => p.question);
+
 	} catch(err) {
 		console.log(`err is ${err}\n`)
 	}
@@ -47,6 +52,9 @@ async function getRandom(n) {
  
 function getPairs(players, round) {
 	//make sure that the first element is equal to the last element
+
+	players = Array.from(new Set(players));
+
 	players.push(players[0]);
 	round = round || 1;
 
@@ -73,8 +81,13 @@ function getPairs(players, round) {
 /* TODO: Test cases
 getPrompts(4, 5);
 console.log(getPairs(['p1', 'p2', 'p3'], 3)); */
-getRandomPrompts(5);
-console.log(getRandomPrompts(5));
+
+console.log(getPairs(['p1', 'p2', 'p3'], 1)); 
+console.log(getPairs(['p1', 'p2', 'p3'], 2)); 
+console.log(getPairs(['p1', 'p2', 'p3'], 3)); 
+
+//getRandomPrompts(5);
+//console.log(getRandomPrompts(5));
 
 
 module.exports = {

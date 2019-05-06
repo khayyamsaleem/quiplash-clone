@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require("express");
+const config = require('./config/default');
 const app = express();
 
 //socket req
