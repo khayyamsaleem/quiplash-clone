@@ -12,7 +12,7 @@ class Header extends React.Component{
     super(props)
     this.state = { publicModalShow: false, addModalShow: false };
   }
-  
+
   render(){
     const { history } = this.props;
     return(
@@ -40,5 +40,5 @@ class Header extends React.Component{
     )
   }
 }
-
 export default withRouter(Header);
+

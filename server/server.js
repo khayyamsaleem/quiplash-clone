@@ -28,8 +28,6 @@ mongoose.connect(dbURL, {useNewUrlParser: true}, (err) => {
 
 const ioUtil = require('./socket/socket-config.js');
 
-
-
 //middlewares
 app.use(bodyParser.json())
 
@@ -37,7 +35,6 @@ app.use(bodyParser.json())
 
 //socket functions
 ioUtil(io);
-
 
 //anything else 
 
