@@ -37,12 +37,7 @@ app.use(bodyParser.json())
 //socket functions
 ioUtil(io);
 
-<<<<<<< HEAD
-
-//anything else
-=======
 //anything else 
->>>>>>> master
 
 //TODO: add index file in routes
 

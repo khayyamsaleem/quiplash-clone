@@ -39,7 +39,7 @@ module.exports = function (io) {
 				roomCode: rand,
 				roomName: game.roomName
 			})
-      cb(null, 'Done');
+      		// cb(null, 'Done');
 		});
 
 		//TODO: verify code to join private room
