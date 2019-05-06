@@ -5,8 +5,7 @@ let uri = process.env.MONGODB_URI || "mongodb://localhost/prompts";
 mongoose.connect(uri, function(err, res) {
 	if (err) {
 		console.log("error: " + err);
-	}
-	else {
+	} else {
 		console.log("connected to: " + uri);
 	}
 });

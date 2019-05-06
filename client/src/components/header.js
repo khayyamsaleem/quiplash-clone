@@ -14,7 +14,7 @@ export default class Header extends React.Component{
     super(...args);
     this.state = { publicModalShow: false, privateModalShow: false, addModalShow: false };
   }
-  
+
   render(){
     let publicModalClose = () => this.setState({ publicModalShow: false });
     let privateModalClose = () => this.setState({ privateModalShow: false });
