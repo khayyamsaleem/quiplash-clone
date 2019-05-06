@@ -1,4 +1,15 @@
 const Game = require('../custom-classes/game.js');
+const mongoose = require('mongoose');
+const Prompt = require('./../models/prompts');
+const config = require('./../config/default');
+
+require('dotenv').config();
+//const env = (process.env.NODE_ENV).toUpperCase();
+
+const dbURL = config.dbURL || process.env['DB_URL_' + env];
+
+mongoose.connect(dbURL, {useNewUrlParser: true});
+
 const util = require('../socket-utils/socket-utils.js');
 
 module.exports = function (io) {
@@ -20,17 +31,6 @@ module.exports = function (io) {
 			const rand = Math.floor((Math.random() * 8000) + 7000);
 
 			const game = new Game(rand);
-<<<<<<< HEAD
-			currentPrivateRooms[rand+""] = game;
-
-			if ((currentPrivateRooms[rand]).addPlayer(socket.id, msg.name)){
-				io.to(socket.id).emit('create-private-room', rand );
-			} else { 
-				io.to(socket.id).emit('create-private-room', 0);
-			}
-//			socket.emit('create-private-room', rand);
-			cb(null, 'Done');
-=======
 			game.roomName = msg.roomName
 			game.addPlayer(socket.id, msg.playerName)
 			currentPrivateRooms[rand] = game;
@@ -39,7 +39,7 @@ module.exports = function (io) {
 				roomCode: rand,
 				roomName: game.roomName
 			})
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
+      			cb(null, 'Done');
 		});
 
 		//TODO: verify code to join private room
@@ -48,16 +48,6 @@ module.exports = function (io) {
 			cb = cb || function () { };
 			// msg.code is room code
 			// msg.name is players name
-<<<<<<< HEAD
-			if (msg.code !== undefined) {
-					if (currentPrivateRooms.hasOwnProperty(msg.code)) {
-						// if game exists add user
-						if ((currentPrivateRooms[msg.code+""]).addPlayer(socket.id, msg.name)){
-							io.to(socket.id).emit('join-private-room', { msg: 'true', name: msg.name });
-						} else {
-							io.to(socket.id).emit('join-private-room', { msg: 'room full', name:''});
-						}
-=======
 			if (msg.code) {
 				let roomCode = parseInt(msg.code)
 				if (currentPrivateRooms.hasOwnProperty(roomCode)) {
@@ -66,29 +56,19 @@ module.exports = function (io) {
 						io.to(socket.id).emit('join-private-room', { msg: 'success', names: ['cheese'], roomName: currentPrivateRooms[roomCode].roomName});
 					} else {
 						io.to(socket.id).emit('join-private-room', { msg: 'room full' });
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 					}
 				}
 			} else {
-<<<<<<< HEAD
 				io.to(socket.id).emit('join-private-room', { msg: 'code invalid', name:''});
-=======
-				io.to(socket.id).emit('join-private-room', { msg: 'code invalid' });
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
-			}
+			} 
 
 			cb(null, 'Done');
 		});
 
-<<<<<<< HEAD
+
 		socket.on('start-game', async function(msg, cb) {
 			cb = cb || function() {};
 			
-=======
-		socket.on('start-game', function (msg, cb) {
-			cb = cb || function () { };
-
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 			// check that the minimum threshold is met
 			// msg.code is room code
 			if (currentPrivateRooms.hasOwnProperty(msg.code)) {
@@ -96,7 +76,6 @@ module.exports = function (io) {
 				const num = (currentPrivateRooms[msg.code]).getNumberofPlayers();
 
 				if (num >= min) {
-<<<<<<< HEAD
 					//get the keys, i.e socket id from all the players in the game
 					//put them in an array called players
 					const currPlayers = Object.keys(currentPrivateRooms[msg.code].players);
@@ -153,18 +132,11 @@ module.exports = function (io) {
 							}
 					});
 					//socket.emit('start-game', { start: 'true' }); 
-=======
-					socket.emit('start-game', { start: 'true' });
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 				} else {
 					socket.emit('start-game', { start: 'false', prompts: null });
 				}
 			} else {
-<<<<<<< HEAD
 				socket.emit('start-game', { start: 'false', prompts: null});	
-=======
-				socket.emit('start-game', { start: 'false' });
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 			}
 
 			cb(null, 'Done');
@@ -183,15 +155,36 @@ module.exports = function (io) {
 
 		//TODO: return number of quips when game starts
 		//TODO: create a public room
-		//TODO; join a public room 
-		socket.on('create-prompt', function (msg) {
+		//TODO; join a public room
 
-		})
-
-		//on disconnect, 
+		//on disconnect,
 		socket.on('disconnect', () => {
 		});
+
+
+		socket.on('add-prompt', function(msg, cb) {
+			let prompt = msg.prompt;
+			console.log(prompt);
+
+			new Prompt({
+				question: prompt
+			}).save((err, promptt) => {
+	if(err) { /*failed to save, server error */
+		console.log("error")
+	} else { /* saved successfully */
+		console.log('success')
+	}
+});
+
+
+
+
+		});
+
+
 	});
+
+
 
 
 }

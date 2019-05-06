@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const express = require("express");
-<<<<<<< HEAD
 const config = require('./config/default');
-=======
 const bodyParser = require('body-parser')
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 const app = express();
 
 //socket req
@@ -40,6 +37,8 @@ app.use(bodyParser.json())
 //socket functions
 ioUtil(io);
 
+
+//anything else
 //anything else 
 
 //TODO: add index file in routes
@@ -48,7 +47,11 @@ app.get('*', (req, res) => {
     res.status(400).json({ message: 'BAD REQUEST' });
 });
 
-server.listen(port, () => console.log(`server running on port ${port}!`)); 
+
+
+
+
+server.listen(port, () => console.log(`server running on port ${port}!`));
 
 //for testing
 module.exports = server;

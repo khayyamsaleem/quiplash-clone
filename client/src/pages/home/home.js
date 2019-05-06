@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './home.css';
 import About from '../about/about';
 import Arrow from '../../components/Arrow/Arrow';

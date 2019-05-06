@@ -49,17 +49,11 @@ class Game {
 
 	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
-<<<<<<< HEAD
 			if (!this.players[socketId]) {
 				const player = new Player(this.code, socketId, name);
 				
 				this.players[socketId] = player;
 				console.log((this.players[socketId]));
-=======
-			const player = new Player(this.code, socketId, name);
-			
-			this.players[socketId] = player;
->>>>>>> 601f8fbd5fcc04dc2d6a3447f6283cc7948e17d1
 
 				return true; // added successfully
 			} else {
@@ -78,7 +72,7 @@ class Game {
 	}
 
 	getNumberofPlayers() {
-		return Object.keys(this.players).length;	
+		return Object.keys(this.players).length;
 	}
 }
 module.exports = Game;

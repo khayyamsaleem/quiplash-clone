@@ -1,7 +1,62 @@
 import React from 'react';
 import { Modal, Form, Button, Nav } from 'react-bootstrap';
+import axios from "axios";
+
+let Filter = require('bad-words');
+
 
 export class AddModal extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      message: '',
+      clean: true,
+    }
+
+
+}
+
+
+    textChange(e) {
+      this.setState({ message : e.target.value })
+      let filter = new Filter();
+      let prompt = this.state.message;
+      if(filter.isProfane(prompt)){
+        console.log("There are curse words in the prompt");
+        this.setState({clean: false});
+      }else{
+        this.setState({clean: true});
+      }
+
+    }
+
+    handleSubmit(e){
+      console.log(this.state.message);
+      let prompt = this.state.message;
+      let filter = new Filter();
+      prompt = filter.clean(prompt);
+      console.log(prompt);
+
+      if(this.state.clean){
+
+        //send to backend
+      }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   render(){
     return(
       <>
@@ -12,19 +67,21 @@ export class AddModal extends React.Component{
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form style={{width: '100%'}}>
+            <Form style={{width: '100%'}} onChange = {this.textChange.bind(this)}>
                 <Form.Label>Wanna see your own prompts featured in a game? Add a prompt here,
             and we'll vet it and add it to the game! You never know, maybe you'll
             even see it in your own game!</Form.Label>
                 <Form.Control placeholder="Fill prompt here..." />
                 <Form.Text className="text-muted">
+                  <h3> {this.state.clean ? ' ': 'Bad words in prompt may not be saved'} </h3>
                     Make your prompt fun and original!
                 </Form.Text>
             </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.onHide}>Close</Button>
-            <Nav.Link href="/Game"><Button>Submit</Button></Nav.Link>
+            <Button onClick={this.handleSubmit.bind(this)}>Submit</Button>
+
           </Modal.Footer>
         </Modal>
       </>
