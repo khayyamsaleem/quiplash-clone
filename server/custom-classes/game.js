@@ -10,6 +10,7 @@ class Player {
 		this.socketId = socketId;
 		this.name = name;
 		this.score = 0;
+		this.prompts = [];
 	}
 
 	//increase player score by some points
@@ -21,6 +22,14 @@ class Player {
 
 	getScore() {
 		return this.score;
+	}
+
+	addPrompt(p) {
+		this.prompts.push(p);
+	}
+
+	getPrompts() {
+		return this.prompts;
 	}
 }
 /*
@@ -40,11 +49,16 @@ class Game {
 
 	addPlayer(socketId, name) {
 		if ((Object.keys(this.players).length <= this.max)) {
-			const player = new Player(this.code, socketId, name);
-			
-			this.players[socketId] = player;
+			if (!this.players[socketId]) {
+				const player = new Player(this.code, socketId, name);
+				
+				this.players[socketId] = player;
+				console.log((this.players[socketId]));
 
-			return true; // added successfully
+				return true; // added successfully
+			} else {
+				return false; //player already exists
+			}
 		} else {
 			return false; //room is full
 		}

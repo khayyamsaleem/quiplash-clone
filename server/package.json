@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=dev node server.js",
+    "start": "NODE_ENV=dev node app.js",
+    "sock": "cross-env NODE_ENV=dev node server.js",
     "sockTest": "cross-env NODE_ENV=test mocha --timeout 15000 tests/socket-tests.js",
     "start:dev": "nodemon",
     "test": "cross-env NODE_ENV=test mocha tests/prompt-tests.js",
